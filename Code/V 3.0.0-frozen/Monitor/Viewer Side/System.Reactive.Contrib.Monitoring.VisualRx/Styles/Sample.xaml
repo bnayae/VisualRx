@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:System.Reactive.Contrib.Monitoring.UI"
+                    xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+    <DataTemplate x:Key="SampleTemplate">
+
+
+        <DockPanel>
+            <TextBlock Margin="3"
+                       VerticalAlignment="Center"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Text="{Binding Title}">
+                <TextBlock.ToolTip>
+                    <ToolTip ToolTipService.HasDropShadow="True" ToolTipService.ShowDuration="170000">
+                        <TextBlock FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Text="{Binding Query}" />
+                    </ToolTip>
+                </TextBlock.ToolTip>
+            </TextBlock>
+            <Button Width="50"
+                    Margin="5,0,0,0"
+                    HorizontalAlignment="Right"
+                    Background="#FF627F9B"
+                    Command="{Binding}"
+                    Content="{Binding CommandText}"
+                    DockPanel.Dock="Right"
+                    Style="{StaticResource GlassButtonSmaller}" />
+        </DockPanel>
+    </DataTemplate>
+
+</ResourceDictionary>

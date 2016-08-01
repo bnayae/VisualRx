@@ -1,0 +1,251 @@
+﻿<Window x:Class="System.Reactive.Contrib.Monitoring.UI.Views.SettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Setting" Width="700"
+        Height="700"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        WindowState="Normal"
+        WindowStyle="None">
+    <Window.Resources>
+
+        <DataTemplate x:Key="DiscoveryPathItemTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="30" />
+                </Grid.ColumnDefinitions>
+
+                <Button Content="X" Grid.Column="0" Width="19" Height="19" FontSize="9" FontWeight="Heavy" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                        Command="{Binding RemoveCommand}" Style="{DynamicResource GlassButtonSmall}"
+                                        BorderBrush="Black" Background="#AAFA6969" BorderThickness="1" />
+                <TextBox Text="{Binding Path=Path, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="24"
+                         Style="{StaticResource PluginPathsTextStyle}" MinWidth="200" Padding="2" VerticalAlignment="Center"
+                         Margin="0,2,0,0" Grid.Column="1" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch"/>
+                <Button Content="..." Grid.Column="2" Width="20" Height="19" FontSize="9" FontWeight="Heavy" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                        Command="{Binding BrowseCommand}" 
+                                        BorderBrush="Black" Background="#AABBD2E7" BorderThickness="1" />
+            </Grid>
+        </DataTemplate>
+
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Border MinWidth="100"
+                MinHeight="100"
+                Background="#FF3A3A3A"
+                BorderBrush="#EE222222"
+                BorderThickness="3,3,2,2"
+                CornerRadius="15"
+                Cursor="SizeAll"
+                MouseDown="OnDragHandler">
+            <!--<Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0" />
+            </Border.Effect>-->
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="4"
+                                                          Direction="330"
+                                                          Opacity="0.5"
+                                                          ShadowDepth="2"
+                                                          Color="Black" />
+            </Border.Effect>
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="8" />
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Row="1"
+                           Grid.Column="1"
+                           Margin="5,0,0,4">
+                    <DockPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="DockPanel.Dock" Value="Right" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="Transparent" Padding="4">
+                                            <Path x:Name="Path"
+                                                  Data="{TemplateBinding Content}"
+                                                  Stroke="#FFB0AEAE"
+                                                  StrokeThickness="2" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="Path" Property="Stroke" Value="White" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DockPanel.Resources>
+
+                    <Button Click="OnClose" Cursor="Arrow">
+                        <GeometryGroup>
+                            <LineGeometry StartPoint="0,0" EndPoint="9,9" />
+                            <LineGeometry StartPoint="0,9" EndPoint="9,0" />
+                        </GeometryGroup>
+                    </Button>
+                    <TextBlock Margin="2,-4,0,0"
+                               FontSize="14"
+                               FontWeight="Heavy"
+                               Foreground="#FFE1E1E1"
+                               IsHitTestVisible="False"
+                               Text="Setting">
+                        <!--<TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="4"
+                                              Direction="330"
+                                              Opacity="0.5"
+                                              ShadowDepth="2"
+                                              Color="Black" />
+                        </TextBlock.Effect>-->
+                    </TextBlock>
+                </DockPanel>
+
+                <Border Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="3"
+                        BorderBrush="#FF333333"
+                        BorderThickness="5"
+                        CornerRadius="4">
+                    <!--<Border.Effect>
+                        <DropShadowEffect  BlurRadius="10" ShadowDepth="0" />
+                    </Border.Effect>-->
+
+                    <Border BorderBrush="#FF94979C"
+                            BorderThickness="1"
+                            CornerRadius="3"
+                            Cursor="Arrow"
+                            Padding="10">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <!-- Discovery paths -->
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Discovery Paths" Margin="0,0,0,2" Foreground="White" FontSize="14" FontWeight="Bold"/>
+                                <ListBox Grid.Row="1" Background="Transparent" SelectionMode="Single"
+                                        ItemsSource="{Binding Model.PluginDiscoveryPaths}" SelectedItem="{Binding PluginDiscoveryPathsSelected}"
+                                         ItemTemplate="{StaticResource DiscoveryPathItemTemplate}">
+                                    <ListBox.Resources>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                                    </ListBox.Resources>
+                                </ListBox>
+                                <Button Content="Add Discovery Path" FontSize="14"  HorizontalAlignment="Right" VerticalAlignment="Center"
+                                        Command="{Binding AddDiscoveryPathCommand}" Style="{DynamicResource GlassButtonSmall}"
+                                        Grid.Row="2" BorderBrush="Black" Background="#AA86DD24" Height="25" MinWidth="150" Margin="1,1,1,0"/>
+                            </Grid>
+                            <!-- Plug-ins -->
+                            <StackPanel Grid.Row="1">
+                                <TextBlock Text="Plug-ins activation" Margin="0,0,0,2" Foreground="White" FontSize="12" FontWeight="Bold"/>
+                                <DataGrid AutoGenerateColumns="False" BorderBrush="White" BorderThickness="1"
+                                  ItemsSource="{Binding Plugins}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" 
+                                  Background="Transparent" 
+                                  SelectionMode="Single"
+                                  CellStyle="{StaticResource DefaultDataGridCellStyle}"
+                                  RowStyle="{StaticResource DefaultDataGridRowStyle}"
+                                  ColumnHeaderStyle="{StaticResource DefaultDataGridColumnHeaderStyle}">
+                                    <DataGrid.Columns>
+                                        <!--<DataGridTemplateColumn Width="Auto" MinWidth="10">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Image Source="{Binding Plugin.Icon}" Stretch="Uniform" Margin="4" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>-->
+                                        <DataGridTemplateColumn Width="Auto" Header="Enabled">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                      IsChecked="{Binding Path=Enabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="Plug-in Title" Width="SizeToCells" IsReadOnly="True" MinWidth="200">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Width="25" Source="{Binding Plugin.Icon}" Stretch="Uniform" Margin="4" />
+                                                        <TextBlock x:Name="textBlock" Margin="4,0,0,4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                                <TextBlock.ToolTip>
+                                                                    <TextBlock Text="{Binding Plugin.Description, Mode=OneWay}"/>
+                                                                </TextBlock.ToolTip>
+                                                                <Hyperlink Foreground="{Binding ElementName=textBlock, Path=Foreground}" 
+                                                                       NavigateUri="{Binding Plugin.Url, Mode=OneWay}"
+                                                                       RequestNavigate="HandleRequestNavigate">
+                                                                <TextBlock Text="{Binding Plugin.Title, Mode=OneWay}" FontWeight="Bold"/>
+                                                            </Hyperlink>
+                                                        </TextBlock>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="Version" Width="SizeToCells" IsReadOnly="True" MinWidth="100">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Plugin.Version, Mode=OneWay}" 
+                                                       Margin="4,0,0,4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="Publisher" Width="SizeToCells" IsReadOnly="True" MinWidth="120">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Plugin.Publisher, Mode=OneWay}" Margin="4,0,0,4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <!--<DataGridTextColumn Header="Title" Binding="{Binding Title}" FontFamily="Arial" FontStyle="Italic" />-->
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+
+                            <TextBlock Grid.Row="2" Text="Changes will take place after restart" FontSize="12" FontWeight="Bold" Foreground="#CCFFA4A4"
+                                           Margin="0,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock.Effect>
+                                        <DropShadowEffect BlurRadius="4"
+                                                          Direction="330"
+                                                          Opacity="0.5"
+                                                          ShadowDepth="2"
+                                                          Color="Black" />
+                                    </TextBlock.Effect>
+                            </TextBlock>
+
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Content="Cancel" FontSize="14" Click="OnCancel"
+                                        BorderBrush="Black" Background="#AAE85602" Style="{DynamicResource GlassButtonSmall}" Height="25" MinWidth="80" Margin="1,0,1,0"/>
+                                <Button Content="Save" FontSize="14" Click="OnSave"
+                                        BorderBrush="Black" Background="#AA1D7635" Style="{DynamicResource GlassButtonSmall}" Height="25" MinWidth="80" Margin="1,0,1,0"/>
+                                <Button Content="Save and Restart" FontSize="14" Click="OnSaveAndRestart"
+                                        BorderBrush="Black" Background="#AA2D8F14" Style="{DynamicResource GlassButtonSmall}" Height="25" MinWidth="80" Margin="1,0,1,0"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Border>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

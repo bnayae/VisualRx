@@ -1,0 +1,59 @@
+﻿<Window x:Class="System.Reactive.Contrib.Monitoring.UI.FolderPickerDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:System.Reactive.Contrib.Monitoring.UI"
+        Title="Select folder"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ShowInTaskbar="False"
+        Height="500" Width="500" 
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        WindowStyle="None">
+    <Window.Resources>
+        <Style x:Key="DialogButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="75"/>
+            <Setter Property="Margin" Value="8"/>
+        </Style>
+        <local:NullToBoolConverter x:Key="NullToBoolConverter"/>
+    </Window.Resources>
+    <Border MinWidth="100"
+                MinHeight="100"
+                Background="#FF494D4F"
+                BorderBrush="#EE362E2E"
+                BorderThickness="3,3,2,2"
+                CornerRadius="15"
+                Margin="10">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="10" ShadowDepth="0" />
+        </Border.Effect>
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Margin="8,3,0,0" Text="Folder Browser" 
+                        Cursor="SizeAll" MouseDown="OnDragHandler" FontSize="16" Foreground="Wheat" FontWeight="Bold">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="0" />
+                </TextBlock.Effect>
+            </TextBlock>
+            <local:FolderPickerControl x:Name="FolderPickerControl" Grid.Row="1" Margin="8,0,8,0"/>
+            <DockPanel Grid.Row="2" Margin="0,0,6.2,0" HorizontalAlignment="Right" Width="435">
+                <Button x:Name="CreateButton" Content="New folder" Style="{StaticResource DialogButtonStyle}" Click="CreateButton_Click" Visibility="Collapsed"
+                        IsEnabled="{Binding ElementName=FolderPickerControl,Path=SelectedItem,Converter={StaticResource NullToBoolConverter}}"/>
+                <Button x:Name="RefreshButton" Content="Refresh" Style="{StaticResource DialogButtonStyle}" Click="RefreshButton_Click"
+                        ToolTip="Refreshes folders tree (including drives)" Visibility="Collapsed"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                    <Button x:Name="OkButton" Content="Ok" Style="{StaticResource GlassButtonSmall}" IsDefault="True"  BorderBrush="Black"
+                        Click="OkButton_Click" Margin="3" Width="78" Background="#FF396848" >
+                    </Button>
+                    <Button x:Name="CancelButton" Content="Cancel" Style="{StaticResource GlassButtonSmall}" BorderBrush="Black"
+                        IsCancel="True" Click="CancelButton_Click" Margin="3" Width="73" Background="#FFAC7739">
+                    </Button>
+                </StackPanel>
+            </DockPanel>
+        </Grid>
+    </Border>
+</Window>

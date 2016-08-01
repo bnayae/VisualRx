@@ -1,0 +1,1264 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.Reactive.Contrib.Monitoring.UI.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle">
+            <summary>
+            Plug-in bundle contract
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.Id">
+            <summary>
+            Gets the id.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.Title">
+            <summary>
+            Gets the title.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.Description">
+            <summary>
+            Gets the description.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.Version">
+            <summary>
+            Gets the plug-in product version.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.PublisherName">
+            <summary>
+            Gets the publisher.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.PublisherEmail">
+            <summary>
+            Gets the publisher email.
+            </summary>
+            <value>
+            The publisher email.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.SupportUrl">
+            <summary>
+            Gets the plug-in support URL.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.ProductUrl">
+            <summary>
+            Gets the plug-in product URL.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.Icon">
+            <summary>
+            Gets the plug-in's icon.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.HasCustomConfiguration">
+            <summary>
+            Gets a value indicating whether this plug--in is having a custom configuration.
+            </summary>
+            <value>
+            	<c>true</c> if this instance has custom configuration; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.EditConfiguration">
+            <summary>
+            Edits the configuration (also responsible to handle the configuration persistence).
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.InterceptionPlugin">
+            <summary>
+            Gets the interception plug-ins.
+            use this plug-in for non-UI interception
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.LineHeaderImagePlugin">
+            <summary>
+            Gets the diagram image mapping plug-ins.
+            used to replace the diagram's image.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.MarblePanelPlugin">
+            <summary>
+            Gets the marble diagram template selector plug-in.
+            use this option in order to replace or manipulate the marble-diagram template. 
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.MarbleItemPlugin">
+            <summary>
+            Gets the marble template plug-in.
+            use this option in order to replace a marble template. 
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.LoadResourcesPlugin">
+            <summary>
+            Gets the load resources plug-in.
+            use this plug-in in order to load additional resources.  
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IPluginBundle.TabPlugin">
+            <summary>
+            Gets the tab template plug-in.
+            use this plug-in in order of adding a new tabs.
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarblePanelPlugin">
+            <summary>
+            Template selector plug-in contract that can be use to select
+            an marble diagram template
+            use this option in order to replace or manipulate the the marble-diagram template. 
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarblePanelPlugin.SelectTemplate(System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleDiagramContext,System.Windows.FrameworkElement)">
+            <summary>
+            Selects the template.
+            </summary>
+            <param name="marbleDiagram">The marble diagram.</param>
+            <param name="element">The element.</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.ILoadResourcesPlugin">
+            <summary>
+            Resource loader plug-in contract that can be use to select
+            an item template
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.ILoadResourcesPlugin.GetResources">
+            <summary>
+            Gets the resources.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.IItemInterceptionPlugin">
+            <summary>
+            Plug-ins that intercept the data flow
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.IItemInterceptionPlugin.AppendMarble(System.Reactive.Contrib.Monitoring.Contracts.MarbleBase)">
+            <summary>
+            Appends the marble.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.IMainContext">
+            <summary>
+             the main context
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IMainContext.DiagramWidth">
+            <summary>
+            Gets the width of the diagram.
+            </summary>
+            <value>
+            The width of the diagram.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.IMainContext.TranslateOffset(System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel)">
+            <summary>
+            Translates the offset.
+            </summary>
+            <param name="itemWrapper">The item wrapper.</param>
+            <returns></returns>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IMainContext.DiagramScale">
+            <summary>
+            Gets or sets the diagram scale.
+            </summary>
+            <value>
+            The diagram scale.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IMainContext.Keyword">
+            <summary>
+            Gets the keyword.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IMainContext.CanvasLeft">
+            <summary>
+            Gets or sets the canvas left.
+            </summary>
+            <value>
+            The canvas left.
+            </value>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleDiagramContext">
+            <summary>
+             used for binding from the marble base to the parent
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleDiagramContext.Name">
+            <summary>
+            Gets the name.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleDiagramContext.Size">
+            <summary>
+            Gets the size.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleDiagramContext.Height">
+            <summary>
+            Gets or sets the height.
+            </summary>
+            <value>
+            The height.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleDiagramContext.PositioningStrategy">
+            <summary>
+            Gets the positioning strategy.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleDiagramContext.GetLocalTimeInSeconds(System.Double)">
+            <summary>
+            Gets the local time in seconds.
+            </summary>
+            <param name="itemTotalSecond">The item total second.</param>
+            <returns></returns>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleDiagramContext.Unit">
+            <summary>
+            Gets the unit.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleDiagramContext.MainContext">
+            <summary>
+            Gets the main context.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleDiagramContext.Color">
+            <summary>
+            Gets the color.
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.IViewModel">
+            <summary>
+            View model contract
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.IViewModel.Width">
+            <summary>
+            Gets the width of the window.
+            </summary>
+            <value>
+            The width of the diagram.
+            </value>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.ITabModel">
+            <summary>
+            Tab minimal contract
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.ITabModel.Keyword">
+             <summary>
+             Gets the keyword.
+             </summary>
+            
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.ITabModel.Clear">
+            <summary>
+            Clears this instance.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.ITabModel.SetViewModel(System.Reactive.Contrib.Monitoring.UI.Contracts.IViewModel)">
+            <summary>
+            Sets the ViewModel.
+            </summary>
+            <param name="vm">The view-model.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.ITabModel.AppendMarble(System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel)">
+            <summary>
+            Appends a marble item.
+            </summary>
+            <param name="itemWrapper">The item wrapper.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.ITabPlugin">
+            <summary>
+            Template selector plug-in contract that can be use to select
+            an tab template
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.ITabPlugin.SelectTemplate(System.Reactive.Contrib.Monitoring.UI.Contracts.ITabModel,System.Windows.FrameworkElement)">
+            <summary>
+            Selects the template.
+            </summary>
+            <param name="tabModel">The tab model.</param>
+            <param name="element">The element.</param>
+            <returns></returns>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.ITabPlugin.TabModel">
+            <summary>
+            Gets the tab model.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.ITabPlugin.Order">
+            <summary>
+            Gets the tab's order.
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleItemPlugin">
+            <summary>
+            Template selector plug-in contract that can be use to select
+            an item template
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleItemPlugin.SelectTemplate(System.Reactive.Contrib.Monitoring.Contracts.MarbleBase,System.Windows.FrameworkElement)">
+            <summary>
+            Selects the template.
+            </summary>
+            <param name="item">The item.</param>
+            <param name="element">The element.</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.ILineHeaderImagePlugin">
+            <summary>
+            Mapping image plug-in (convert text to ImageSource)
+            used to replace the diagram's image.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.ILineHeaderImagePlugin.Convert(System.String)">
+            <summary>
+            Converts the specified text.
+            </summary>
+            <param name="text">The text.</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase">
+            <summary>
+            Base class for plug-in 
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.Id">
+            <summary>
+            Gets the id.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.Title">
+            <summary>
+            Gets the title.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.Description">
+            <summary>
+            Gets the description.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.Icon">
+            <summary>
+            Gets the plug-in's icon.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.Version">
+            <summary>
+            Gets the version.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.PublisherName">
+            <summary>
+            Gets the publisher.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.PublisherEmail">
+            <summary>
+            Gets the publisher email.
+            </summary>
+            <value>
+            The publisher email.
+            </value>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.ProductUrl">
+            <summary>
+            Gets the plug-in url.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.SupportUrl">
+            <summary>
+            Gets the plug-in support URL.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.HasCustomConfiguration">
+            <summary>
+            Gets a value indicating whether this plug--in is having a custom configuration.
+            </summary>
+            <value>
+            	<c>true</c> if this instance has custom configuration; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.EditConfiguration">
+            <summary>
+            Edits the configuration (also responsible to handle the configuration persistence).
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.LoadResourcesPlugin">
+            <summary>
+            Gets the load resources plug-in.
+            use this plug-in in order to load additional resources.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.InterceptionPlugin">
+            <summary>
+            Gets the interception plug-in.
+            use this plug-in for non-UI interception
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.LineHeaderImagePlugin">
+            <summary>
+            Gets the diagram image mapping plug-ins.
+            used to replace the diagram's image.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.MarblePanelPlugin">
+            <summary>
+            Gets the marble diagram panel template selector plug-in.
+            use this option in order to replace or manipulate the the marble-diagram template.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.MarbleItemPlugin">
+            <summary>
+            Gets the marble item template plug-in.
+            use this option in order to replace a marble template. 
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.MarbleItemPlugins">
+            <summary>
+            Gets the marble item template plug-ins.
+            use this option in order to replace a marble template. 
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.PluginBundleBase.TabPlugin">
+            <summary>
+            Gets the tab template plug-in.
+            use this plug-in in order of adding a new tabs.
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.Command">
+            <summary>
+            general command
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.Command.#ctor(System.Action{System.Object},System.Predicate{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.UI.Contracts.Command"/> class.
+            </summary>
+            <param name="execute">The execute.</param>
+            <param name="canExecute">The can execute.</param>
+        </member>
+        <member name="E:System.Reactive.Contrib.Monitoring.UI.Contracts.Command.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.Command.PublishCanExecuteChanged">
+            <summary>
+            Publishes the can execute changed.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.Command.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the Command can execute in its current state.
+            </summary>
+            <param name="parameter">Data used by the Command.  If the Command does not require data to be passed, this object can be set to null.</param>
+            <returns>
+            true if this Command can be executed; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.Command.Execute(System.Object)">
+            <summary>
+            Defines the method to be called when the Command is invoked.
+            </summary>
+            <param name="parameter">Data used by the Command.  If the Command does not require data to be passed, this object can be set to null.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1">
+            <summary>
+            Custom observable collection with async capability
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>Initializes a new instance of the <see cref="T:System.Collections.ObjectModel.MarbleCollection`1" /> class that contains elements copied from the specified collection.</summary>
+            <param name="collection">The collection from which the elements are copied.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="collection" /> parameter cannot be null.</exception>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.CreateViewOnce">
+            <summary>
+            Creates the view.
+            </summary>
+        </member>
+        <member name="E:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.CollectionChanged">
+            <summary>
+            Occurs when [collection changed].
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.Synchronize(System.Object)">
+            <summary>
+            Synchronizes the specified state.
+            </summary>
+            <param name="state">The state.</param>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.BufferSize">
+            <summary>
+            Gets the size of the buffer.
+            </summary>
+            <value>
+            The size of the buffer.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.RefreshBufferSize">
+            <summary>
+            Refreshes the size of the buffer.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.OnPropertyChanged(System.String)">
+            <summary>
+            Called when [property changed].
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.AddAsync(`0)">
+            <summary>
+            Adds the async.
+            </summary>
+            <param name="item">item to add.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.AddSync(`0)">
+            <summary>
+            Adds the async.
+            </summary>
+            <param name="item">item to add.</param>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.View">
+            <summary>
+            Gets or sets the view.
+            </summary>
+            <value>
+            The view.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposed"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1.Finalize">
+            <summary>
+            Releases unmanaged resources and performs other cleanup operations before the
+            <see cref="T:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleCollection`1"/> is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.SampleBase`1">
+            <summary>
+            Base class for plug-in 
+            </summary>
+        </member>
+        <member name="E:System.Reactive.Contrib.Monitoring.UI.Contracts.SampleBase`1.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.SampleBase`1.System#Windows#Input#ICommand#CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
+            <returns>
+            true if this command can be executed; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.SampleBase`1.System#Windows#Input#ICommand#Execute(System.Object)">
+            <summary>
+            Defines the method to be called when the command is invoked.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.SampleBase`1.Title">
+            <summary>
+            Gets the title.
+            </summary>
+            <value>
+            The title.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.SampleBase`1.Order">
+            <summary>
+            Gets the order.
+            </summary>
+            <value>
+            The order.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.SampleBase`1.OnQuery">
+            <summary>
+            Called for the [query].
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.SampleBase`1.Query">
+            <summary>
+            Gets the query.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.SampleBase`1.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.SampleBase`1.CommandText">
+            <summary>
+            Gets or sets the command text.
+            </summary>
+            <value>
+            The command text.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.SampleBase`1.OnPropertyChanged(System.String)">
+            <summary>
+            Notifies listeners that a property value has changed.
+            </summary>
+            <param name="propertyName">Name of the property used to notify listeners.  This
+            value is optional and can be provided automatically when invoked from compilers
+            that support <see cref="T:System.Runtime.CompilerServices.CallerMemberNameAttribute"/>.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.UIPluginHelper">
+            <summary>
+            Helper
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.UIPluginHelper.GetAssemblyName">
+            <summary>
+            Gets the name of the assembly.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.UIPluginHelper.GetResourceUri(System.String,System.String)">
+            <summary>
+            Gets the relative resource URI.
+            </summary>
+            <param name="assemblyName">the assembly name</param>
+            <param name="relativePath">The relative path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.UIPluginHelper.GetPackResourceUri(System.String,System.String)">
+            <summary>
+            Gets the relative resource URI.
+            </summary>
+            <param name="assemblyName"></param>
+            <param name="relativePath">The relative path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.UIPluginHelper.GetPackResourceUri(System.String)">
+            <summary>
+            Gets the relative resource URI.
+            </summary>
+            <param name="relativePath">The relative path.</param>
+            <returns></returns>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.UIPluginHelper.CurrentDispatcher">
+            <summary>
+            Gets the current dispatcher.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.UIPluginHelper.SetDispatcher">
+            <summary>
+            Sets the dispatcher.
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.MarblePositioningStrategy">
+            <summary>
+            the marble diagram positioning strategy
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.MarblePositioningStrategy.GlobalTime">
+            <summary>
+            Global time will show the marble on a timeline with
+            a correlation between all marble diagrams
+            within the current tab
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.MarblePositioningStrategy.PrivateTime">
+            <summary>
+            Private time will conduct the diagram timeline on a single diagram base
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.MarblePositioningStrategy.Sequence">
+            <summary>
+            Sequence will present the marbles in correlation
+            to their creation order regardless of the creation time
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleUnit">
+            <summary>
+            marble diagram duration unit
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleUnit.Seconds0001">
+            <summary>
+            Seconds 0.001
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleUnit.Seconds001">
+            <summary>
+            Seconds 0.01
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleUnit.Seconds01">
+            <summary>
+            Seconds 0.1
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleUnit.Seconds">
+            <summary>
+            Seconds
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleUnit.Minute">
+            <summary>
+            Minutes
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleUnit.Hour">
+            <summary>
+            Hour
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleUnit.Day">
+            <summary>
+            Day
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.ScrollKind">
+            <summary>
+            Scroll-bar scrolling kind
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.ScrollKind.ManualScroll">
+            <summary>
+            manual scrolling
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.ScrollKind.ScrollToEnd">
+            <summary>
+            active scroll to end
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.TabKind">
+            <summary>
+            Indicate whether the data has to be flatten
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.TabKind.Marble">
+            <summary>
+            Marble hierarchic view
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.UI.Contracts.TabKind.Flat">
+            <summary>
+            flat view
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel">
+            <summary>
+            Diagram view model represent the actual marble on the diagram
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.#ctor(System.String,System.Double,System.Reactive.Contrib.Monitoring.UI.Contracts.IMainContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="indexOrder">The index order.</param>
+            <param name="mainContext">The main context.</param>
+        </member>
+        <member name="E:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.PropertyChanged">
+            <summary>
+            Occurs when [property changed].
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.Name">
+            <summary>
+            Gets the name.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.Color">
+            <summary>
+            Gets the color.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.IndexOrder">
+            <summary>
+            Gets the index order.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.Size">
+            <summary>
+            Gets the size.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.Height">
+            <summary>
+            Gets or sets the diagram height.
+            </summary>
+            <value>
+            The height.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.PositioningStrategies">
+            <summary>
+            Gets or sets the marble positioning strategy.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.PositioningStrategy">
+            <summary>
+            Gets or sets the positioning strategy.
+            </summary>
+            <value>
+            The positioning strategy.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.RawItems">
+            <summary>
+            Gets or sets the raw items.
+            </summary>
+            <value>
+            The raw items.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.Items">
+            <summary>
+            Gets the items.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.Unit">
+            <summary>
+            Gets or sets the unit (for the timeline).
+            </summary>
+            <value>
+            The unit.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.DiagramWidth">
+            <summary>
+            Gets the width of the diagram.
+            </summary>
+            <value>
+            The width of the diagram.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.MainContext">
+            <summary>
+            Gets the main context (tab level (diagrams)).
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.ActionBoardVisibility">
+            <summary>
+            Gets or sets the action board visibility.
+            </summary>
+            <value>
+            The action board visibility.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.RefreshCommand">
+            <summary>
+            Gets the refresh.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.PrivateTimeCommand">
+            <summary>
+            private time Command
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.GlobalTimeCommand">
+            <summary>
+            global time Command
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.SequenceCommand">
+            <summary>
+            Sequence Command.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.ShowActions">
+            <summary>
+            Show actions.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.HideActions">
+            <summary>
+            Hide actions.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.GetLocalTimeInSeconds(System.Double)">
+            <summary>
+            Gets the relative time in seconds (per marble diagram).
+            </summary>
+            <value>
+            The item time in seconds.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.AppendMarble(System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel)">
+            <summary>
+            Adds the specified item wrapper.
+            </summary>
+            <param name="itemWrapper">The item wrapper.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.CreateColor">
+            <summary>
+            Creates the color.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.RaiseDiagramWidthChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Raises the diagram width changed.
+            </summary>
+            <param name="sender"></param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.Finalize">
+            <summary>
+            Releases unmanaged resources and performs other cleanup operations before the
+            <see cref="T:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel"/> is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramModel.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposed"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel">
+            <summary>
+            view model for single tab data
+            </summary>
+        </member>
+        <member name="E:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.PropertyChanged">
+            <summary>
+            Occurs when a property value changes.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.#ctor(System.String,System.Reactive.Contrib.Monitoring.UI.Contracts.IViewModel,System.Reactive.Contrib.Monitoring.UI.Contracts.TabKind)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel"/> class.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="vm">The vm.</param>
+            <param name="kind">The kind.</param>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.TabKind">
+            <summary>
+            Gets the kind of the tab.
+            </summary>
+            <value>
+            The kind of the tab.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.FlatItems">
+            <summary>
+            Gets or sets the flat items.
+            </summary>
+            <value>
+            The flat items.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.CanvasLeft">
+            <summary>
+            Gets or sets the canvas left.
+            </summary>
+            <value>
+            The canvas left.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.ScrollText">
+            <summary>
+            Gets or sets a value indicating whether this instance is scroll to end.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is scroll to end; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.LastScroll">
+            <summary>
+            Gets or sets the last scroll.
+            used for the last scrolling gap optimization at the ScrollViewerExtensions
+            </summary>
+            <value>
+            The last scroll.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.IsScrollToEnd">
+            <summary>
+            Gets or sets a value indicating whether this instance is scroll to end.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is scroll to end; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.ScrollKindSelected">
+            <summary>
+            Gets or sets the scroll kind selected.
+            </summary>
+            <value>
+            The scroll kind selected.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.ScrollKinds">
+            <summary>
+            Gets or sets the scroll kinds.
+            </summary>
+            <value>
+            The scroll kinds.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.Keyword">
+            <summary>
+            Gets the keyword.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.Index">
+            <summary>
+            Gets the index.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.UnitSelected">
+            <summary>
+            Gets or sets the unit selected.
+            </summary>
+            <value>
+            The unit selected.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.Units">
+            <summary>
+            Gets or sets the units of timeline.
+            </summary>
+            <value>
+            The units.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.Diagrams">
+            <summary>
+            Gets the diagrams.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.DiagramWidth">
+            <summary>
+            Gets the width of the diagram.
+            </summary>
+            <value>
+            The width of the diagram.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.DiagramScale">
+            <summary>
+            Gets or sets the diagram scale.
+            </summary>
+            <value>
+            The diagram scale.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.ActionBoardVisibility">
+            <summary>
+            Gets or sets the action board visibility.
+            </summary>
+            <value>
+            The action board visibility.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.ViewModel">
+            <summary>
+            Gets the view model.
+            </summary>
+            <value>
+            The view model.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.AppendMarble(System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel)">
+            <summary>
+            Appends the marble.
+            </summary>
+            <param name="itemWrapper">The item wrapper.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.SetDiagramOrdering">
+            <summary>
+            Sets the diagram ordering.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.TranslateOffset(System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel)">
+            <summary>
+            Translates the offset.
+            </summary>
+            <param name="itemWrapper">The item wrapper.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.TranslateByFactor(System.TimeSpan,System.Double)">
+            <summary>
+            Translates the by factor.
+            </summary>
+            <param name="offset">The offset.</param>
+            <param name="totalSeconds">The total seconds.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.Clear">
+            <summary>
+            Clears this instance.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.System#Reactive#Contrib#Monitoring#UI#Contracts#ITabModel#SetViewModel(System.Reactive.Contrib.Monitoring.UI.Contracts.IViewModel)">
+            <summary>
+            Sets the ViewModel.
+            </summary>
+            <param name="vm">The view-model.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.SetPositioningStrategy(System.Reactive.Contrib.Monitoring.UI.Contracts.MarblePositioningStrategy)">
+            <summary>
+            Sets the positioning strategy.
+            </summary>
+            <param name="strategy">The strategy.</param>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.ClearCommand">
+            <summary>
+            Gets the clear Command.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.PrivateTimeCommand">
+            <summary>
+            private time Command
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.GlobalTimeCommand">
+            <summary>
+            global time Command
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.SequenceCommand">
+            <summary>
+            Sequence Command.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.ShowAction">
+            <summary>
+            Show actions.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleDiagramsViewModel.ScrollAction">
+            <summary>
+            Show actions.
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel">
+            <summary>
+            UI side wrapper to the marble item
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel.#ctor(System.Reactive.Contrib.Monitoring.Contracts.MarbleBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel"/> class.
+            </summary>
+            <param name="item">The item.</param>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel.Item">
+            <summary>
+            Gets the item.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel.DiagramContext">
+            <summary>
+            Gets or sets the diagram context.
+            </summary>
+            <value>
+            The diagram context.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel.MainContext">
+            <summary>
+            UI context of execution
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel.Left">
+            <summary>
+            Gets the left.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel.Sequence">
+            <summary>
+            Gets or sets the item sequence (within a marble diagram).
+            </summary>
+            <value>
+            The sequence.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel.Color">
+            <summary>
+            Gets or sets the color of the item.
+            </summary>
+            <value>
+            The color.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.MarbleItemViewModel.Clone(System.Reactive.Contrib.Monitoring.UI.Contracts.IMarbleDiagramContext)">
+            <summary>
+            Clones the specified diagram.
+            </summary>
+            <param name="diagram">The diagram.</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.UI.Contracts.WeakReference`1">
+            <summary>
+            typed WeakReference
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.UI.Contracts.WeakReference`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.UI.Contracts.WeakReference`1"/> class.
+            </summary>
+            <param name="target">The target.</param>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.UI.Contracts.WeakReference`1.Target">
+            <summary>
+            Gets or sets the object (the target) referenced by the current <see cref="T:System.WeakReference"/> object.
+            </summary>
+            <returns>null if the object referenced by the current <see cref="T:System.WeakReference"/> object has been garbage collected; otherwise, a reference to the object referenced by the current <see cref="T:System.WeakReference"/> object.</returns>
+            <exception cref="T:System.InvalidOperationException">The reference to the target object is invalid. This exception can be thrown while setting this property if the value is a null reference or if the object has been finalized during the set operation.</exception>
+        </member>
+    </members>
+</doc>

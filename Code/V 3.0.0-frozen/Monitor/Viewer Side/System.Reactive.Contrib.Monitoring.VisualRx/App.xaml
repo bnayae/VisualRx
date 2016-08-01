@@ -1,0 +1,22 @@
+﻿<Application x:Class="System.Reactive.Contrib.Monitoring.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Buttons/GeometryButton.xaml" />
+                <ResourceDictionary Source="Styles/Buttons/CollapseButton.xaml" />
+                <ResourceDictionary Source="Styles/Buttons/GlassButton.xaml" />
+                <ResourceDictionary Source="Styles/Buttons/LinkButton.xaml" />
+                <ResourceDictionary Source="Styles/ComboBoxStyle.xaml" />
+                <ResourceDictionary Source="Styles/ExpanderStyle.xaml" />
+                <ResourceDictionary Source="Styles/Grid.xaml" />
+                <ResourceDictionary Source="Styles/DataGrid.xaml" />
+                <ResourceDictionary Source="Styles/Marble.xaml" />
+                <ResourceDictionary Source="Styles/Sample.xaml" />
+                <ResourceDictionary Source="Styles/Tab.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

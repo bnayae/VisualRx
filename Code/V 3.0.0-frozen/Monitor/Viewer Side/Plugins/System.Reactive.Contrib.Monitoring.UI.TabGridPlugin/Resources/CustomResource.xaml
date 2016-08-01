@@ -1,0 +1,58 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Data Grid collection template -->
+    <DataTemplate x:Key="DiagramsGridTemplate">
+        <DataGrid ItemsSource="{Binding FlatItems}"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                  AutoGenerateColumns="False"
+                  Background="LightGray" RowBackground="LightYellow"
+                  AlternatingRowBackground="LightBlue"
+                  BorderBrush="Gray" BorderThickness="2"
+                  FontSize="14"
+                  FontStretch="Expanded"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="True"
+                  CanUserSortColumns = "True"
+                  HorizontalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto"
+                  SelectionMode="Extended" SelectionUnit="FullRow"
+                  IsReadOnly="True"
+                  RowDetailsVisibilityMode="Collapsed"
+                  VirtualizingStackPanel.IsVirtualizing="True"
+                  VirtualizingStackPanel.VirtualizationMode="Recycling">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="SizeToCells" MinWidth="100"/>
+                <DataGridTextColumn Header="Kind" Binding="{Binding Kind}" MinWidth="50" />
+                <DataGridTextColumn Header="Offset" Binding="{Binding Offset}" MinWidth="150" />
+
+                <DataGridTemplateColumn Header="Keywords"  MinWidth="50" Width="SizeToCells">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding Keywords}"
+                                 ItemTemplate="{StaticResource Keywords}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel IsItemsHost="True"
+                                                Orientation="Horizontal">
+                                        </StackPanel>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Value}" Margin="0,0,10,10" TextWrapping="Wrap"/>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+            <DataGrid.RowValidationErrorTemplate>
+                <ControlTemplate>
+                </ControlTemplate>
+            </DataGrid.RowValidationErrorTemplate>
+        </DataGrid>
+    </DataTemplate>
+
+</ResourceDictionary>

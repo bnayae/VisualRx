@@ -1,0 +1,485 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.Reactive.Contrib.Monitoring.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:System.Reactive.Contrib.Monitoring.MarbleCandidate">
+            <summary>
+            Candidate data before it is constructed into a marble
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.SendThreshold">
+            <summary>
+            the threshold of the send buffering
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.VisualRxProxyBase">
+            <summary>
+            Visual Rx proxy's base class
+            </summary>
+            <remarks>
+            doesn't use abstract member for IVisualRxFilterableProxy, because of performance consideration
+            </remarks>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.Contracts.VisualRxProxyBase._filters">
+            <summary>
+            collection of filters that gets marble and filter kind
+            and return whether to forward
+            the monitor information to this channel
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.VisualRxProxyBase.AddFilter(System.String,System.Func{System.Reactive.Contrib.Monitoring.MarbleCandidate,System.Boolean})">
+            <summary>
+            Adds a filter.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="filter">The filter.</param>
+            <returns>success indication</returns>
+            <remarks>may failed when trying to add a key multiple times</remarks>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.VisualRxProxyBase.RemoveFilter(System.String)">
+            <summary>
+            remove a filter.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>success indication</returns>
+            <remarks>may failed if not contain the key</remarks>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.VisualRxProxyBase.ClearFilters">
+            <summary>
+            Clears the filters.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.VisualRxProxyBase.ExchangeFilters">
+            <summary>
+            Exchanges the filters (thread-safe no locking).
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.VisualRxProxyBase.Filter(System.Reactive.Contrib.Monitoring.MarbleCandidate)">
+            <summary>
+            Filters the specified item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.VisualRxProxyBase.SendingThreshold">
+            <summary>
+            Gets the sending threshold.
+            </summary>
+            <value>
+            The sending threshold.
+            </value>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.VisualRxProxyBase.Dispose">
+            <summary>
+            Performs application-defined tasks associated
+            with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.VisualRxProxyBase.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposed"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.VisualRxProxyBase.Finalize">
+            <summary>
+            Releases unmanaged resources and performs other cleanup operations before the
+            <see cref="!:VisualRxProxyWrapper"/> is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.IVisualRxFilterableProxy">
+            <summary>
+            the contract of Visual Rx proxy
+            (proxy is responsible to send the monitored datum through a channel)
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.IVisualRxFilterableProxy.Filter(System.Reactive.Contrib.Monitoring.MarbleCandidate)">
+            <summary>
+            Filters the specified item.
+            </summary>
+            <param name="candidate">The value and metadata</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.IVisualRxServiceAdapter">
+            <summary>
+            the contract of the Visual RX cross process communication
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.IVisualRxServiceAdapter.Send(System.Reactive.Contrib.Monitoring.Contracts.MarbleBase[])">
+            <summary>
+            Sends the specified items.
+            </summary>
+            <param name="items">The items.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.IVisualRxServiceAdapter.Ping">
+            <summary>
+            Pings this instance.
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.IVisualRxProxy">
+            <summary>
+            the contract of Visual Rx proxy
+            (proxy is responsible to send the monitored datum through a channel)
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.IVisualRxProxy.OnInitialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+            <returns>initialize information</returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.IVisualRxProxy.OnBulkSend(System.Collections.Generic.IEnumerable{System.Reactive.Contrib.Monitoring.Contracts.MarbleBase})">
+            <summary>
+            Send a balk.
+            </summary>
+            <param name="items">The items.</param>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.IVisualRxProxy.Kind">
+            <summary>
+            Gets the monitor provider kind.
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.Constants">
+            <summary>
+            common constants
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.Contracts.Constants.ServiceNamespace">
+            <summary>
+            the namespace of the Visual Rx service
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.Contracts.Constants.DataNamespace">
+            <summary>
+            the namespace of the Visual Rx data contract
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.Contracts.Constants.TraceName">
+            <summary>
+            the default trace name
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.ILogAdapter">
+            <summary>
+            Loggers plug in contract
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.ILogAdapter.Write(System.String)">
+            <summary>
+            Writes the specified text.
+            </summary>
+            <param name="text">The text.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.IVisualRxServiceAdapterAsync">
+            <summary>
+            the async contract of the Visual RX cross process communication
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.IVisualRxServiceAdapterAsync.SendAsync(System.Reactive.Contrib.Monitoring.Contracts.MarbleBase[])">
+            <summary>
+            Sends the specified items.
+            </summary>
+            <param name="items">The items.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.IVisualRxServiceAdapterAsync.PingAsync">
+            <summary>
+            Pings this instance.
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions">
+            <summary>
+            Marble raw value serialization options
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions.None">
+            <summary>
+            raw value none serialized
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions.Serializable">
+            <summary>
+            raw value serialized using Serializable
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions.NetDataContractSerialization">
+            <summary>
+            raw value serialized using NetDataContractSerialization
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions.ToString">
+            <summary>
+            take the ToString representation
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.Internals.TraceSourceMonitorHelper">
+            <summary>
+            Trace source helper
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.Internals.TraceSourceMonitorHelper.Debug(System.String,System.Object[])">
+            <summary>
+            Trace debug (Verbose) level.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="args">The args.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.Internals.TraceSourceMonitorHelper.Info(System.String,System.Object[])">
+            <summary>
+            Trace information.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="args">The args.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.Internals.TraceSourceMonitorHelper.Warn(System.String,System.Object[])">
+            <summary>
+            Trace warning.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="args">The args.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.Internals.TraceSourceMonitorHelper.Error(System.String,System.Object[])">
+            <summary>
+            Trace error.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="args">The args.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.IMonitorSurrogate`1.Mapping(`0,System.Reactive.Contrib.Monitoring.MarbleCandidate)">
+            <summary>
+            Map a type into a surrogate type
+            </summary>
+            <param name="item"></param>
+            <param name="candidate">value + metadata</param>
+            <returns></returns>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.IMonitorSurrogate`1.SerializationStrategy">
+            <summary>
+            set the serialization strategy.
+            </summary>
+            <value>
+            The serialization strategy.
+            </value>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase">
+            <summary>
+            base class for the marble item
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.#ctor(System.String,System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,System.Reactive.Contrib.Monitoring.Contracts.MarbleKind,System.TimeSpan,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="options">The options.</param>
+            <param name="kind">The kind.</param>
+            <param name="elapsed">The elapsed.</param>
+            <param name="machineName">Name of the machine.</param>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.Options">
+            <summary>
+            Gets the options.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.BinaryValue">
+            <summary>
+            Gets or sets the binary value (only relevant at serialization time)
+            </summary>
+            <value>
+            The binary value.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.StringValue">
+            <summary>
+            Gets or sets the string value (only relevant at serialization time)
+            </summary>
+            <value>
+            The string value.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.RawValue">
+            <summary>
+            marble raw value information
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.Value">
+            <summary>
+            marble value information
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.FormattedValue">
+            <summary>
+            marble formatted value information
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.ThreadId">
+            <summary>
+            the thread id of the marble item
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.DateCreatedUtc">
+            <summary>
+            Gets the date created.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.Name">
+            <summary>
+            diagram name (sue as a key)
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.Kind">
+            <summary>
+            type of the marble
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.Offset">
+            <summary>
+            Occurrence offset
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.Keywords">
+            <summary>
+            Gets or sets the keywords.
+            </summary>
+            <value>
+            The keywords.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.IndexOrder">
+            <summary>
+            the order index
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.MachineName">
+            <summary>
+            diagram name (sue as a key)
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.OnSerializing(System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Called when [serializing].
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.MarbleBase.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Called when [deserialized].
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.MarbleComplete">
+            <summary>
+            complete marble
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.MarbleComplete.#ctor(System.String,System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,System.TimeSpan,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.Contracts.MarbleComplete"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="options">The options.</param>
+            <param name="elapsed">The elapsed.</param>
+            <param name="machineName">Name of the machine.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.MarbleComplete.Create(System.String,System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,System.TimeSpan,System.String)">
+            <summary>
+            Creates the specified name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="options">The options.</param>
+            <param name="elapsed">The elapsed.</param>
+            <param name="machineName">Name of the machine.</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.MarbleError">
+            <summary>
+            Marble error
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.MarbleError.#ctor(System.String,System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,System.Exception,System.TimeSpan,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.Contracts.MarbleError"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="options">The options.</param>
+            <param name="ex">The ex.</param>
+            <param name="elapsed">The elapsed.</param>
+            <param name="machineName">Name of the machine.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.MarbleError.Create(System.String,System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,System.Exception,System.TimeSpan,System.String)">
+            <summary>
+            Creates the specified name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="options">The options.</param>
+            <param name="ex">The ex.</param>
+            <param name="elapsed">The elapsed.</param>
+            <param name="machineName">Name of the machine.</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.MarbleNext">
+            <summary>
+            on next marble
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.MarbleNext.#ctor(System.String,System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,System.TimeSpan,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.Contracts.MarbleNext"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="options">The options.</param>
+            <param name="elapsed">The elapsed.</param>
+            <param name="machineName">Name of the machine.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.Contracts.MarbleNext.Create``1(System.String,System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,``0,System.TimeSpan,System.String)">
+            <summary>
+            Creates the specified name.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name">The name.</param>
+            <param name="options">The options.</param>
+            <param name="item">The item.</param>
+            <param name="elapsed">The elapsed.</param>
+            <param name="machineName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.MarbleKind">
+            <summary>
+            marble kind
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.Contracts.MarbleKind.OnNext">
+            <summary>
+            On next
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.Contracts.MarbleKind.OnError">
+            <summary>
+            On error
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.Contracts.MarbleKind.OnCompleted">
+            <summary>
+            On complete
+            </summary>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.Contracts.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.Contracts.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

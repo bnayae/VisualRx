@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BBC79B89-F40B-407C-8FFE-C0E59B8FC220}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VisualRxDemo</RootNamespace>
+    <AssemblyName>VisualRxDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>RxDemo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Reactive.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.Core.3.0.0\lib\net45\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=3.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.Interfaces.3.0.0\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=3.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.Linq.3.0.0\lib\net45\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=3.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.PlatformServices.3.0.0\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.Windows.Threading.3.0.0\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Enums.cs" />
+    <Compile Include="InvokeCommand.cs" />
+    <Compile Include="Scenarios\35.AdvanceWindow.cs" />
+    <Compile Include="Scenarios\34.CustomWindow.cs" />
+    <Compile Include="Scenarios\33.OHLC.cs" />
+    <Compile Include="Scenarios\32.Distinct.cs" />
+    <Compile Include="Scenarios\31.DistinctUntilChanged.cs" />
+    <Compile Include="Scenarios\30.Sample.cs" />
+    <Compile Include="Scenarios\20.ScanScenario.cs" />
+    <Compile Include="Scenarios\09.BufferCountScenario.cs" />
+    <Compile Include="Scenarios\10.WindowScenario.cs" />
+    <Compile Include="Scenarios\08.ZipScenario.cs" />
+    <Compile Include="Scenarios\07.MergeScenario.cs" />
+    <Compile Include="Scenarios\06.CreateScenario.cs" />
+    <Compile Include="Scenarios\05.GenerateScenario.cs" />
+    <Compile Include="Scenarios\02.WhereScenario.cs" />
+    <Compile Include="Scenarios\01.SelactScenario.cs" />
+    <Compile Include="Scenarios\04.ReturnVsRangeScenario.cs" />
+    <Compile Include="Scenarios\03.IntervalVsTimerScenario.cs" />
+    <Compile Include="Scenarios\11.WindowSumScenario.cs" />
+    <Compile Include="Scenarios\13.GroupJoinWeatherMood.cs" />
+    <Compile Include="Scenarios\12.JoinWeatherMood.cs" />
+    <Compile Include="Scenarios\14.GroupJoinLinqWeatherMood.cs" />
+    <Compile Include="Scenarios\15.GroupJoinLinqAggregateWeatherMood.cs" />
+    <Compile Include="Scenarios\16.TimeRelated.cs" />
+    <Compile Include="Scenarios\41.GroupByUntilScenario.cs" />
+    <Compile Include="Scenarios\40.GroupByScenario.cs" />
+    <Compile Include="Scenarios\18.JoinLinqWeatherMood.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IScenario.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RxDemo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Code Side\Proxies\System.Reactive.Contrib.Monitoring.WcfDiscoPlugin\System.Reactive.Contrib.Monitoring.WcfDiscoPlugin.csproj">
+      <Project>{26073062-4e07-453b-9e0a-e532472deb6c}</Project>
+      <Name>System.Reactive.Contrib.Monitoring.WcfDiscoPlugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Code Side\Proxies\System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin\System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin.csproj">
+      <Project>{4260e5a7-1d06-4b8c-98dc-756ac4b40064}</Project>
+      <Name>System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Code Side\Proxies\System.Reactive.Contrib.Monitoring.WcfQueuedBindingPlugin\System.Reactive.Contrib.Monitoring.WcfQueuedPlugin.csproj">
+      <Project>{6b930bed-9c14-4123-8740-755bd5142d08}</Project>
+      <Name>System.Reactive.Contrib.Monitoring.WcfQueuedPlugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Code Side\System.Reactive.Contrib.Monitoring\System.Reactive.Contrib.Monitoring.csproj">
+      <Project>{3d565ab3-2f63-4dbc-9d0b-9ac84565e931}</Project>
+      <Name>System.Reactive.Contrib.Monitoring</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Reactive.Contrib.Monitoring.Contracts\System.Reactive.Contrib.Monitoring.Contracts.csproj">
+      <Project>{c57bb7b3-c69f-4331-ba1e-325d1f14b907}</Project>
+      <Name>System.Reactive.Contrib.Monitoring.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin</name>
+    </assembly>
+    <members>
+        <member name="T:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy">
+            <summary>
+            Send monitor info through WCF channel
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.KIND">
+            <summary>
+            the kind of VisualRxWcfFixedAddressProxy
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress,System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy"/> class.
+            </summary>
+            <param name="binding">The binding.</param>
+            <param name="endpoint">The endpoint.</param>
+            <param name="channelRecoveryThrottling">The minimal duration between channel renew (end point channel recovery)</param>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.Kind">
+            <summary>
+            Gets the proxy kind.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.OnBulkSend(System.Collections.Generic.IEnumerable{System.Reactive.Contrib.Monitoring.Contracts.MarbleBase})">
+            <summary>
+            Send a balk.
+            </summary>
+            <param name="items">The items.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.OnInitialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.CreateDefaultHttp(System.String)">
+            <summary>
+            Creates the default HTTP.
+            </summary>
+            <param name="host">Host name or IP.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.CreateDefaultHttp(System.String,System.TimeSpan)">
+            <summary>
+            Creates the default HTTP.
+            </summary>
+            <param name="host">Host name or IP.</param>
+            <param name="channelRecoveryThrottling">The minimal duration between channel renew (end point channel recovery)</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.Create(System.ServiceModel.Channels.Binding,System.String)">
+            <summary>
+            Creates the specified binding.
+            </summary>
+            <param name="binding">The binding.</param>
+            <param name="uri">The URI.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.Create(System.ServiceModel.Channels.Binding,System.String,System.TimeSpan)">
+            <summary>
+            Creates the specified binding.
+            </summary>
+            <param name="binding">The binding.</param>
+            <param name="uri">The URI.</param>
+            <param name="channelRecoveryThrottling">The minimal duration between channel renew (end point channel recovery)</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.Create(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <summary>
+            Creates the specified binding.
+            </summary>
+            <param name="binding">The binding.</param>
+            <param name="endpoint">The endpoint.</param>
+            <param name="channelRecoveryThrottling">The minimal duration between channel renew (end point channel recovery)</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.Create(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress,System.TimeSpan)">
+            <summary>
+            Creates the specified binding.
+            </summary>
+            <param name="binding">The binding.</param>
+            <param name="endpoint">The endpoint.</param>
+            <param name="channelRecoveryThrottling">The minimal duration between channel renew (end point channel recovery)</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposed"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.ProxyFactory">
+            <summary>
+            Proxy
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.ProxyFactory.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress,System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.ProxyFactory"/> class.
+            </summary>
+            <param name="binding">The binding.</param>
+            <param name="address">The address.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.ProxyFactory.Send(System.Reactive.Contrib.Monitoring.Contracts.MarbleBase[])">
+            <summary>
+            Sends the specified item.
+            </summary>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.ProxyFactory.Ping">
+            <summary>
+            Pings this instance.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.ProxyFactory.Endpoint">
+            <summary>
+            Gets the endpoint.
+            </summary>
+            <value>
+            The endpoint.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfFixedAddressProxy.ProxyFactory.GetProxy(System.ServiceModel.ChannelFactory{System.Reactive.Contrib.Monitoring.Contracts.IVisualRxServiceAdapterAsync})">
+            <summary>
+            Gets the proxy.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

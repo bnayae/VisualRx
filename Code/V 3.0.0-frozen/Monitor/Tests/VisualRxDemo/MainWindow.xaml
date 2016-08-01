@@ -1,0 +1,32 @@
+﻿<Window x:Class="VisualRxDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="650" Width="525">
+    <Window.Resources>
+        <DataTemplate x:Key="ScenarioTemplate">
+            <Border BorderBrush="#333333" BorderThickness="2" Background="#FFDBDBDC">
+                <Grid Margin="5" HorizontalAlignment="Stretch">
+                    <TextBlock Margin="34,4,5,5" Text="{Binding Title}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" FontFamily="Sketch Block"/>
+                    <Expander HorizontalAlignment="Stretch" VerticalAlignment="Top" Foreground="#AA333333"
+                      IsExpanded="False" Padding="5" >
+                        <StackPanel Background="#FFF2F3EF">
+                            <TextBlock x:Name="_txt" Text="{Binding Sample, Mode=OneWay}" Margin="6" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Stretch" TextWrapping="Wrap" FontWeight="Bold" Foreground="#222222"/>
+                            <Grid Margin="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Slider Minimum="8" Maximum="24" HorizontalAlignment="Stretch" Value="{Binding ElementName=_txt, Path=FontSize}"/>
+                                <Button Grid.Column="1" Content="Start" Command="{Binding Invoke}" Width="120" HorizontalAlignment="Right"/>
+                            </Grid>
+                        </StackPanel>
+                    </Expander>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <ListBox ItemsSource="{Binding OrderedScenarios}"  HorizontalContentAlignment="Stretch"
+                 SelectedItem="{Binding Current}" ItemTemplate="{StaticResource ScenarioTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"></ListBox>
+    </Grid>
+</Window>

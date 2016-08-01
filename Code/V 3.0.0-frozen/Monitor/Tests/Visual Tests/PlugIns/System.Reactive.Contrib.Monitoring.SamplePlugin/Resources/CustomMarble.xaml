@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DataTemplate x:Key="CustomMarbleNextTemplate">
+        <Rectangle Stroke="Red"
+                 StrokeThickness="0"
+                 Width="{Binding DiagramContext.Size}"
+                 Height="{Binding DiagramContext.Size}"
+                 Stretch="Uniform">
+            <Rectangle.Fill>
+                <!-- Image Brush is used to fill the Ellipse area into Image -->
+                <ImageBrush  ImageSource="/System.Reactive.Contrib.Monitoring.SamplePlugin;component/Images/hot.png"></ImageBrush>
+            </Rectangle.Fill>
+            <Rectangle.ToolTip>
+                <StackPanel>
+                    <TextBlock Text="Customized by plugin"/>
+                    <TextBlock Text="{Binding Item.Value}"/>
+                </StackPanel>
+            </Rectangle.ToolTip>
+        </Rectangle>
+    </DataTemplate>
+
+</ResourceDictionary>

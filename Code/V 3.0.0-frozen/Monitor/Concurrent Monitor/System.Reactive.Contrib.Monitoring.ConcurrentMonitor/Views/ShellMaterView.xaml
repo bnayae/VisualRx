@@ -1,0 +1,105 @@
+﻿<Window x:Class="System.Reactive.Contrib.Monitoring.UI.ShellMaterView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:System.Reactive.Contrib.Monitoring.UI"
+        xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        mc:Ignorable="d" 
+        d:DesignHeight="300" d:DesignWidth="300"        
+        Title="Concurrent Monitor"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="8" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="8" />
+        </Grid.RowDefinitions>
+
+
+        <Border Grid.ColumnSpan="3" Grid.RowSpan="3"
+                    BorderBrush="#FFEEEEEE"
+                    Background="#FFF6F5F3"
+                    BorderThickness="4"
+                    CornerRadius="6"
+                    Cursor="SizeAll"
+                    DockPanel.Dock="Top"
+                    MouseDown="OnDragHandler"
+                    >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5"
+                                      Opacity="0.3"
+                                      ShadowDepth="5"
+                                      Color="#8E000000" />
+            </Border.Effect>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="261*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.ColumnSpan="2" Background="#FFEEEEEE"/>
+                <!--  Title bar -->
+                <Image Source="/Images/title.png" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="2" Height="30" Width="175" Margin="5,0,0,0"/>
+                <!--  Close / Minimize buttons -->
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" >
+                    <Button Click="OnMinimizeHandler" Cursor="Arrow"
+                                Style="{StaticResource GeometryButton}">
+                        <LineGeometry po:Freeze="True" StartPoint="0,9" EndPoint="9,9" />
+                    </Button>
+
+                    <Button Margin="0,3,2,0" Click="OnCloseHandler" Cursor="Arrow"
+                                Style="{StaticResource GeometryButton}">
+                        <GeometryGroup>
+                            <LineGeometry StartPoint="0,0" EndPoint="9,9" />
+                            <LineGeometry StartPoint="0,9" EndPoint="9,0" />
+                        </GeometryGroup>
+                    </Button>
+                </StackPanel>
+                <!--  Content -->
+                <local:ShellView Grid.Row="1" Grid.ColumnSpan="2"/>
+            </Grid>
+        </Border>
+
+
+        <Thumb Grid.Row="0"
+               Grid.Column="1"
+               Cursor="SizeNS"
+               DragDelta="OnResize"
+               Opacity="0"
+               Tag="T" />
+        <Thumb Grid.Row="3"
+               Grid.Column="1"
+               Cursor="SizeNS"
+               DragDelta="OnResize"
+               Opacity="0"
+               Tag="B" />
+        <Thumb Grid.Row="1"
+               Grid.RowSpan="2"
+               Grid.Column="0"
+               Cursor="SizeWE"
+               DragDelta="OnResize"
+               Opacity="0"
+               Tag="L" />
+        <Thumb Grid.Row="1"
+               Grid.RowSpan="2"
+               Grid.Column="2"
+               Cursor="SizeWE"
+               DragDelta="OnResize"
+               Opacity="0"
+               Tag="R" />
+    </Grid>
+</Window>

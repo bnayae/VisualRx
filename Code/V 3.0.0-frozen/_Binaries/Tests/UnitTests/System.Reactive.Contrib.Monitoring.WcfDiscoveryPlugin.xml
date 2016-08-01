@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.Reactive.Contrib.Monitoring.WcfDiscoveryPlugin</name>
+    </assembly>
+    <members>
+        <member name="T:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoverySettings">
+            <summary>
+            Wcf discovery proxy's setting
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoverySettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoverySettings"/> class.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoverySettings.DiscoveryTimeoutSeconds">
+            <summary>
+            Gets or sets the discovery timeout seconds.
+            Wcf discovery limit the duration where it waiting for endpoint response.
+            </summary>
+            <value>
+            The discovery timeout seconds.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoverySettings.RediscoverIntervalMinutes">
+            <summary>
+            Gets or sets the rediscover interval minutes.
+            on elapse the proxy will retry actively to re-discover endpoints
+            (remember that endpoints are also announcing when they are ready, therefore
+            the rediscover is just a backup in case that the proxy is missing the announcement).
+            </summary>
+            <value>
+            The rediscover interval minutes.
+            </value>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy">
+            <summary>
+            Monitor proxy to Wcf discovery channel
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.KIND">
+            <summary>
+            the VisualRxWcfDiscoveryProxy kind
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy"/> class from being created.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.Kind">
+            <summary>
+            Gets the proxy kind.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.Settings">
+            <summary>
+            Gets the settings.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.Create(System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoverySettings)">
+            <summary>
+            Creates proxy.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.OnInitialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.OnBulkSend(System.Collections.Generic.IEnumerable{System.Reactive.Contrib.Monitoring.Contracts.MarbleBase})">
+            <summary>
+            Bulk send.
+            </summary>
+            <param name="items">The items.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposed"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory">
+            <summary>
+            Handle the channel
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.Init(System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoverySettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.Send(System.Reactive.Contrib.Monitoring.Contracts.MarbleBase[])">
+            <summary>
+            Broadcast the specified items to all listeners
+            </summary>
+            <param name="items">The marble items.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.Ping">
+            <summary>
+            Pings this instance.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.Discover">
+            <summary>
+            Discovers this listeners.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.AddProxies(System.Func{System.ServiceModel.Channels.Binding},System.ServiceModel.EndpointAddress[])">
+            <summary>
+            Adds the proxies from addresses.
+            </summary>
+            <param name="bindingFactory">The binding factory.</param>
+            <param name="addresses">The addresses.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.AddProxies(System.Collections.Generic.IEnumerable{System.ServiceModel.EndpointAddress},System.Func{System.ServiceModel.Channels.Binding})">
+            <summary>
+            Adds the proxies from addresses.
+            </summary>
+            <param name="addresses">The addresses.</param>
+            <param name="bindingFactory">The binding factory.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.HostAnnouncements">
+            <summary>
+            Hosts the announcements listener.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.OnOnlineAnnoncement(System.Object,System.ServiceModel.Discovery.AnnouncementEventArgs)">
+            <summary>
+            Called when [online annoncement].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.ServiceModel.Discovery.AnnouncementEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.OnOfflineAnnoncement(System.Object,System.ServiceModel.Discovery.AnnouncementEventArgs)">
+            <summary>
+            Called when [offline annoncement].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.ServiceModel.Discovery.AnnouncementEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.Cleanup(System.String[])">
+            <summary>
+            Cleanups the specified old channels.
+            </summary>
+            <param name="oldChannelKeys">The old channels.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.ChannelInfo">
+            <summary>
+            Encapsulate the proxy and the channel together
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.Finalize">
+            <summary>
+            Releases unmanaged resources and performs other cleanup operations before the
+            <see cref="T:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory"/> is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxWcfDiscoveryProxy.ServiceFactory.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposed"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+    </members>
+</doc>

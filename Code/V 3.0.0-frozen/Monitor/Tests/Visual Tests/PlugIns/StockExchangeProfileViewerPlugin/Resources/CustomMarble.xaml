@@ -1,0 +1,105 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DataTemplate x:Key="StockDownTemplate">
+        <StackPanel>
+            <Grid>
+                <TextBlock x:Name="_txt" Text="{Binding Item.RawValue[1], StringFormat=\{0:N1\}}"
+                       FontSize="14" FontStretch="ExtraExpanded"
+                       HorizontalAlignment="Center"
+                       Foreground="White">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform X="-2" Y="-2" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock Text="{Binding Item.RawValue[1], StringFormat=\{0:N1\}}"
+                           FontSize="14" FontStretch="ExtraExpanded"
+                           HorizontalAlignment="Center">
+                </TextBlock>
+            </Grid>
+            <Rectangle Stroke="Transparent"
+                 StrokeThickness="0"
+                 Width="{Binding DiagramContext.Size}"
+                 Height="{Binding DiagramContext.Size}"
+                 Stretch="Uniform">
+                <Rectangle.Fill>
+                    <!-- Image Brush is used to fill the Ellipse area into Image -->
+                    <ImageBrush  ImageSource="/StockExchangeMonitorViewerPlugin;component/Images/down.png"></ImageBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="StockUpTemplate">
+        <StackPanel Height="100">
+            <Grid>
+                <TextBlock x:Name="_txt" Text="{Binding Item.RawValue[1], StringFormat=\{0:N1\}}"
+                       FontSize="14" FontStretch="ExtraExpanded"
+                       HorizontalAlignment="Center"
+                       Foreground="White">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform X="-2" Y="-2" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock Text="{Binding Item.RawValue[1], StringFormat=\{0:N1\}}"
+                           FontSize="14" FontStretch="ExtraExpanded"
+                           HorizontalAlignment="Center">
+                </TextBlock>
+            </Grid>
+
+            <Rectangle Stroke="Transparent"
+                 StrokeThickness="0"
+                 Width="{Binding DiagramContext.Size}"
+                 Height="{Binding DiagramContext.Size}"
+                 Stretch="Uniform">
+                <Rectangle.Fill>
+                    <!-- Image Brush is used to fill the Ellipse area into Image -->
+                    <ImageBrush  ImageSource="/StockExchangeMonitorViewerPlugin;component/Images/up.png"></ImageBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </StackPanel>
+    </DataTemplate>
+
+    <!-- Single diagram template -->
+    <DataTemplate x:Key="StockDiagramTemplate">
+        <Border x:Name="_diagramView" BorderThickness="0"
+                CornerRadius="5" Margin="5" Padding="5">
+            <Border.LayoutTransform>
+                <ScaleTransform ScaleX="{Binding Path=MainContext.DiagramScale}" ScaleY="{Binding Path=MainContext.DiagramScale}"/>
+            </Border.LayoutTransform>
+
+            <StackPanel>
+                <TextBlock Text="{Binding Name}">
+                        <TextBlock.LayoutTransform>
+                            <ScaleTransform ScaleX="1.4" ScaleY="1.4"/>
+                        </TextBlock.LayoutTransform>
+                </TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <Image  HorizontalAlignment="Left"
+                                Source="{Binding Name, Converter={StaticResource imgConv}}"
+                                Width="30" Height="30" CacheMode="BitmapCache" Stretch="UniformToFill"/>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Rectangle Height="2" Fill="Black" Width="{Binding DiagramWidth}"/>
+                        <ListBox ItemsSource="{Binding Items}" ItemTemplateSelector="{StaticResource _marbleTemplateSelector}" BorderThickness="0"
+                                  Background="Transparent">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas IsItemsHost="True" Height="60" Background="Transparent">
+                                    </Canvas>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+                                    <!-- Warp the collection with new ListCollectionView(predicate) -->
+                                    <!--<Setter Property="Canvas.Left" Value="{Binding Left, ConverterParameter={Binding Path=DataContext.Interval,RelativeSource={RelativeSource AncestorType=List, Mode=FindAncestor}, Left}}"/>-->
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+</ResourceDictionary>

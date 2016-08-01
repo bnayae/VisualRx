@@ -1,0 +1,805 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.Reactive.Contrib.Monitoring</name>
+    </assembly>
+    <members>
+        <member name="T:System.Reactive.Contrib.Monitoring.FuncSurrogate`1">
+            <summary>
+            flexible implementation of the surrogate
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.FuncSurrogate`1.SerializationStrategy">
+            <summary>
+            Gets the serialization strategy.
+            </summary>
+            <value>
+            The serialization strategy.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.FuncSurrogate`1.Mapping(`0,System.Reactive.Contrib.Monitoring.MarbleCandidate)">
+            <summary>
+            Mappings the specified candidate.
+            </summary>
+            <param name="item"></param>
+            <param name="candidate">The candidate.</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.MonitorSurrogate`1">
+            <summary>
+            Used to manipulate the sending item
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.MonitorSurrogate`1.SerializationStrategy">
+            <summary>
+            Gets the serialization strategy.
+            </summary>
+            <value>
+            The serialization strategy.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorSurrogate`1.Mapping(`0,System.Reactive.Contrib.Monitoring.MarbleCandidate)">
+            <summary>
+            Mappings the specified candidate.
+            </summary>
+            <param name="item"></param>
+            <param name="candidate">The candidate.</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.SafeStopwatch">
+            <summary>
+            thread safe stopwatch
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.SafeStopwatch.Elapsed">
+            <summary>
+            Get Elapse time
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.VisualRxSettings">
+            <summary>
+            Visual Rx code side settings
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.VisualRxSettings._filters">
+            <summary>
+            collection of filters that gets marble and filter kind
+            and return whether to forward
+            the monitor information to this channel
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxSettings.Initialize(System.Reactive.Contrib.Monitoring.Contracts.IVisualRxProxy[])">
+            <summary>
+            Initializes by code.
+            </summary>
+            <param name="proxies">proxies that will publish the monitor</param>
+            <returns>Monitor proxies plug-in load information</returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxSettings.GetProxiesInfoAsync(System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper[])">
+            <summary>
+            Gets the proxies info a-sync.
+            </summary>
+            <param name="proxyWrappers">The proxy wrappers.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxSettings.AddProxies(System.Reactive.Contrib.Monitoring.Contracts.IVisualRxProxy[])">
+            <summary>
+            Adds the proxies.
+            </summary>
+            <param name="proxies">The proxies.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxSettings.RemoveProxies(System.Reactive.Contrib.Monitoring.Contracts.IVisualRxProxy[])">
+            <summary>
+            Removes the proxies.
+            </summary>
+            <param name="proxies">The proxies.</param>
+            <exception cref="T:System.ArgumentException">missing proxies</exception>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxSettings.AddFilter(System.Func{System.Reactive.Contrib.Monitoring.MarbleCandidate,System.String,System.Boolean})">
+            <summary>
+            Adds the filter.
+            </summary>
+            <param name="filter">
+            Gets marble and filter kind
+            and return whether to forward
+            the monitor information to this channel
+            </param>
+            <returns>the filter's key or null on failure</returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxSettings.AddNamedFilter(System.String,System.Func{System.Reactive.Contrib.Monitoring.MarbleCandidate,System.String,System.Boolean})">
+            <summary>
+            Adds the named filter.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="filter">The filter.</param>
+            <returns>success indication</returns>
+            <remarks>may failed when trying to add a key multiple times</remarks>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxSettings.RemoveNamedFilter(System.String)">
+            <summary>
+            Adds the named filter.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>success indication</returns>
+            <remarks>may failed if not contain the key</remarks>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxSettings.ClearFilters">
+            <summary>
+            Clears the filters.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxSettings.ExchangeFilters">
+            <summary>
+            Exchanges the filters (thread-safe no locking).
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxSettings.Filter(System.Reactive.Contrib.Monitoring.MarbleCandidate,System.String)">
+            <summary>
+            Filters the specified item.
+            </summary>
+            <param name="item">The item.</param>
+            <param name="proxyKind">ProxyKind</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxSettings.GetProxies(System.Reactive.Contrib.Monitoring.MarbleCandidate)">
+            <summary>
+            Gets the proxies.
+            </summary>
+            <param name="candidate">The candidate.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxSettings.Send(System.Reactive.Contrib.Monitoring.Contracts.MarbleBase,System.Collections.Generic.IEnumerable{System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper})">
+            <summary>
+            Sends the specified item.
+            </summary>
+            <param name="item">The item.</param>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxSettings.Enable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:System.Reactive.Contrib.Monitoring.VisualRxSettings"/> is enable.
+            </summary>
+            <value>
+              <c>true</c> if enable; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxSettings.Proxies">
+            <summary>
+            Gets the proxies.
+            </summary>
+            <value>
+            The proxies.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxSettings.CollectMachineInfo">
+            <summary>
+            Gets or sets a value indicating whether to collect machine info like machine name and ip.
+            </summary>
+            <value>
+              <c>true</c> if [collect machine info]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.MonitorOperator`1">
+            <summary>
+            Main class for the monitor logic and coordination
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.GetLocalIPs">
+            <summary>
+            Gets the local I ps.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.AttachTo(System.IObservable{`0})">
+            <summary>
+            Attaches to.
+            </summary>
+            <param name="instance">The instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.AttachTo(System.Reactive.Subjects.IConnectableObservable{`0})">
+            <summary>
+            Attaches to.
+            </summary>
+            <param name="instance">The instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.AttachTo(System.Reactive.Subjects.ISubject{`0})">
+            <summary>
+            Attaches to.
+            </summary>
+            <param name="instance">The instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.AttachTo``1(System.Reactive.Subjects.ISubject{``0,`0})">
+            <summary>
+            Attaches to.
+            </summary>
+            <param name="instance">The instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.PublishOnNext(`0)">
+            <summary>
+            Publishes the on next.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.PublishComplete">
+            <summary>
+            Publishes the complete.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.PublishError(System.Exception)">
+            <summary>
+            Publishes the error.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.Publish(System.Reactive.Contrib.Monitoring.Contracts.MarbleBase,System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper[])">
+            <summary>
+            Publishes the specified item.
+            </summary>
+            <param name="item">The item.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.MonitorOperator`1.ConnectableWraper">
+            <summary>
+            Connectable observable monitor wrapper
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.ConnectableWraper.Connect">
+            <summary>
+            start the observable.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.ConnectableWraper.Subscribe(System.IObserver{`0})">
+            <summary>
+            Subscribes the specified observer.
+            </summary>
+            <param name="observer">The observer.</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.MonitorOperator`1.SubjectWrapper">
+            <summary>
+            Connectable observable monitor wrapper
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.SubjectWrapper.Subscribe(System.IObserver{`0})">
+            <summary>
+            Subscribes the specified observer.
+            </summary>
+            <param name="observer">The observer.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.SubjectWrapper.OnCompleted">
+            <summary>
+            Called when [completed].
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.SubjectWrapper.OnError(System.Exception)">
+            <summary>
+            Called when [error].
+            </summary>
+            <param name="error">The error.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.SubjectWrapper.OnNext(`0)">
+            <summary>
+            Called when [next].
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.MonitorOperator`1.SubjectWrapper`2">
+            <summary>
+            Subject monitor wrapper
+            </summary>
+            <typeparam name="TIn">The type of the in.</typeparam>
+            <typeparam name="TOunt">The type of the out.</typeparam>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.SubjectWrapper`2.Subscribe(System.IObserver{`2})">
+            <summary>
+            Subscribes the specified observer.
+            </summary>
+            <param name="observer">The observer.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.SubjectWrapper`2.OnCompleted">
+            <summary>
+            Called when [completed].
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.SubjectWrapper`2.OnError(System.Exception)">
+            <summary>
+            Called when [error].
+            </summary>
+            <param name="error">The error.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.SubjectWrapper`2.OnNext(`1)">
+            <summary>
+            Called when [next].
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.MonitorOperator`1.DefaultSurrogate`1">
+            <summary>
+            Default implementation of the surrogate
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.MonitorOperator`1.DefaultSurrogate`1.SerializationStrategy">
+            <summary>
+            Gets the serialization strategy.
+            </summary>
+            <value>
+            The serialization strategy.
+            </value>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.MonitorOperator`1.DefaultSurrogate`1.Mapping(`1,System.Reactive.Contrib.Monitoring.MarbleCandidate)">
+            <summary>
+            Mappings the specified candidate.
+            </summary>
+            <param name="item"></param>
+            <param name="candidate">The candidate.</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.VisualRxInitResult">
+            <summary>
+            Load information on the monitor proxy plug-ins
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxInitResult.Add(System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper)">
+            <summary>
+            Adds the specified proxy.
+            </summary>
+            <param name="proxy">The proxy.</param>
+            <returns></returns>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxInitResult.Count">
+            <summary>
+            Gets the count.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxInitResult.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxInitResult.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxInitResult.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.VisualRxInitResult.VisualRxProxyInfo">
+            <summary>
+            Load information on the monitor proxy plug-ins
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxInitResult.VisualRxProxyInfo.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.VisualRxInitResult.VisualRxProxyInfo"/> class.
+            </summary>
+            <param name="kind">The kind.</param>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxInitResult.VisualRxProxyInfo.Kind">
+            <summary>
+            Gets the kind.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxInitResult.VisualRxProxyInfo.Error">
+            <summary>
+            Gets or sets the error.
+            </summary>
+            <value>
+            The error.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxInitResult.VisualRxProxyInfo.InitInfo">
+            <summary>
+            Gets or sets the init info.
+            </summary>
+            <value>
+            The init info.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxInitResult.VisualRxProxyInfo.Succeed">
+            <summary>
+            Gets or sets a value indicating whether the plugin loadeding succeed.
+            </summary>
+            <value>
+              <c>true</c> if this instance is loaded; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper">
+            <summary>
+            Visual Rx sender proxy
+            Wrap the actual proxy and create a batch (bulk) send.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper.#ctor(System.Reactive.Contrib.Monitoring.Contracts.IVisualRxProxy)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper" /> class.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper.ActualProxy">
+            <summary>
+            Gets the actual proxy.
+            </summary>
+            <value>
+            The actual proxy.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper.Kind">
+            <summary>
+            Gets the proxy kind.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper.Initialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+            <returns>Initialize information</returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper.Send(System.Reactive.Contrib.Monitoring.Contracts.MarbleBase)">
+            <summary>
+            Sends the specified item.
+            </summary>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper.Dispose">
+            <summary>
+            Performs application-defined tasks associated
+            with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper.DisposeInternal(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposed"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposed"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper.Finalize">
+            <summary>
+            Releases unmanaged resources and performs other cleanup operations before the
+            <see cref="T:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper"/> is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxProxyWrapper.Filter(System.Reactive.Contrib.Monitoring.MarbleCandidate)">
+            <summary>
+            Filters the specified item.
+            </summary>
+            <param name="candidate">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Contrib.Monitoring.VisualRxTraceSourceProxy">
+            <summary>
+            Trace source monitor's proxy
+            </summary>
+        </member>
+        <member name="F:System.Reactive.Contrib.Monitoring.VisualRxTraceSourceProxy.KIND">
+            <summary>
+            the VisualRxTraceSourceProxy kind
+            </summary>
+        </member>
+        <member name="P:System.Reactive.Contrib.Monitoring.VisualRxTraceSourceProxy.Kind">
+            <summary>
+            Gets the proxy kind.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxTraceSourceProxy.ParseXml(System.IO.Stream)">
+            <summary>
+            Parses the XML.
+            </summary>
+            <param name="xml">The XML.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxTraceSourceProxy.OnBulkSend(System.Collections.Generic.IEnumerable{System.Reactive.Contrib.Monitoring.Contracts.MarbleBase})">
+            <summary>
+            Bulk send.
+            </summary>
+            <param name="items">The items.</param>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxTraceSourceProxy.OnInitialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+            <returns>
+            initialize information
+            </returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxTraceSourceProxy.Create">
+            <summary>
+            Creates proxy.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Contrib.Monitoring.VisualRxTraceSourceProxy.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposed"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:System.Reactive.Linq.VisualRxExtensions">
+            <summary>
+            Extension methods
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.MonitorMany``1(System.IObservable{System.IObservable{``0}},System.String,System.Double,System.String[])">
+            <summary>
+            Monitors many streams (like window).
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingBaseIndex">Index of the ordering base.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.MonitorMany``1(System.IObservable{System.IObservable{``0}},System.String,System.Double,System.Func{``0,System.Reactive.Contrib.Monitoring.MarbleCandidate,System.Object},System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,System.String[])">
+            <summary>
+            Monitors many streams (like window).
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingBaseIndex">Index of the ordering base.</param>
+            <param name="surrogateAction">The surrogate action.</param>
+            <param name="serializationStrategy">The serialization strategy.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.MonitorMany``1(System.IObservable{System.IObservable{``0}},System.String,System.Double,System.Reactive.Contrib.Monitoring.Contracts.IMonitorSurrogate{``0},System.String[])">
+            <summary>
+            Monitors many streams (like window).
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingBaseIndex">Index of the ordering base.</param>
+            <param name="surrogate">The surrogate.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.MonitorGroup``2(System.IObservable{System.Reactive.Linq.IGroupedObservable{``0,``1}},System.String,System.Double,System.String[])">
+            <summary>
+            Monitor Group by stream
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TElement">The type of the element.</typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingBaseIndex">Index of the ordering base.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.MonitorGroup``2(System.IObservable{System.Reactive.Linq.IGroupedObservable{``0,``1}},System.String,System.Double,System.Func{``1,System.Reactive.Contrib.Monitoring.MarbleCandidate,System.Object},System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,System.String[])">
+            <summary>
+            Monitor Group by stream
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TElement">The type of the element.</typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingBaseIndex">Index of the ordering base.</param>
+            <param name="surrogateAction">The surrogate action.</param>
+            <param name="serializationStrategy">The serialization strategy.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.MonitorGroup``2(System.IObservable{System.Reactive.Linq.IGroupedObservable{``0,``1}},System.String,System.Double,System.Reactive.Contrib.Monitoring.Contracts.IMonitorSurrogate{``1},System.String[])">
+            <summary>
+            Monitor Group by stream
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TElement">The type of the element.</typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingBaseIndex">Index of the ordering base.</param>
+            <param name="elementSurrogate">The element surrogate.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.Monitor``1(System.Reactive.Subjects.IConnectableObservable{``0},System.String,System.Double,System.String[])">
+            <summary>
+            Monitor IConnectableObservable stream
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingIndex">Index of the ordering.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.Monitor``1(System.Reactive.Subjects.IConnectableObservable{``0},System.String,System.Double,System.Func{``0,System.Reactive.Contrib.Monitoring.MarbleCandidate,System.Object},System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,System.String[])">
+            <summary>
+            Monitor IConnectableObservable stream
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingIndex">Index of the ordering.</param>
+            <param name="surrogateAction">The surrogate action.</param>
+            <param name="serializationStrategy">The serialization strategy.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.Monitor``1(System.Reactive.Subjects.IConnectableObservable{``0},System.String,System.Double,System.Reactive.Contrib.Monitoring.Contracts.IMonitorSurrogate{``0},System.String[])">
+            <summary>
+            Monitor IConnectableObservable stream
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingIndex">Index of the ordering.</param>
+            <param name="surrogate">The surrogate.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.Monitor``1(System.Reactive.Subjects.ISubject{``0},System.String,System.Double,System.String[])">
+            <summary>
+            Monitor ISubject stream
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingIndex">Index of the ordering.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.Monitor``1(System.Reactive.Subjects.ISubject{``0},System.String,System.Double,System.Func{``0,System.Reactive.Contrib.Monitoring.MarbleCandidate,System.Object},System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,System.String[])">
+            <summary>
+            Monitor ISubject stream
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingIndex">Index of the ordering.</param>
+            <param name="surrogateAction">The surrogate action.</param>
+            <param name="serializationStrategy">The serialization strategy.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.Monitor``1(System.Reactive.Subjects.ISubject{``0},System.String,System.Double,System.Reactive.Contrib.Monitoring.Contracts.IMonitorSurrogate{``0},System.String[])">
+            <summary>
+            Monitor ISubject stream
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingIndex">Index of the ordering.</param>
+            <param name="surrogate">The surrogate.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.Monitor``2(System.Reactive.Subjects.ISubject{``0,``1},System.String,System.Double,System.String[])">
+            <summary>
+            Monitor ISubject stream
+            </summary>
+            <typeparam name="TIn">The type of the in.</typeparam>
+            <typeparam name="TOut">The type of the out.</typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingIndex">Index of the ordering.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.Monitor``2(System.Reactive.Subjects.ISubject{``0,``1},System.String,System.Double,System.Func{``1,System.Reactive.Contrib.Monitoring.MarbleCandidate,System.Object},System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,System.String[])">
+            <summary>
+            Monitor ISubject stream
+            </summary>
+            <typeparam name="TIn">The type of the in.</typeparam>
+            <typeparam name="TOut">The type of the out.</typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingIndex">Index of the ordering.</param>
+            <param name="surrogateAction">The surrogate action.</param>
+            <param name="serializationStrategy">The serialization strategy.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.Monitor``2(System.Reactive.Subjects.ISubject{``0,``1},System.String,System.Double,System.Reactive.Contrib.Monitoring.Contracts.IMonitorSurrogate{``1},System.String[])">
+            <summary>
+            Monitor ISubject stream
+            </summary>
+            <typeparam name="TIn">The type of the in.</typeparam>
+            <typeparam name="TOut">The type of the out.</typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingIndex">Index of the ordering.</param>
+            <param name="surrogate">The surrogate.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.Monitor``1(System.IObservable{``0},System.String,System.Double,System.String[])">
+            <summary>
+            Monitor IObservable stream
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingIndex">the ordering of the marble diagram</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.Monitor``1(System.IObservable{``0},System.String,System.Double,System.Func{``0,System.Reactive.Contrib.Monitoring.MarbleCandidate,System.Object},System.Reactive.Contrib.Monitoring.Contracts.MarbleSerializationOptions,System.String[])">
+            <summary>
+            Monitor IObservable stream
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingIndex">Index of the ordering.</param>
+            <param name="surrogateAction">a surrogate action.</param>
+            <param name="serializationStrategy">serialization instruction</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.Monitor``1(System.IObservable{``0},System.String,System.Double,System.Reactive.Contrib.Monitoring.Contracts.IMonitorSurrogate{``0},System.String[])">
+            <summary>
+            Monitor IObservable stream
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance">The instance.</param>
+            <param name="name">The name.</param>
+            <param name="orderingIndex">Index of the ordering.</param>
+            <param name="surrogate">a surrogate.</param>
+            <param name="keywords">The keywords.</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reactive.Linq.VisualRxExtensions.GroupedMonitored`2">
+            <summary>
+            Group wrapper
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TElement">The type of the element.</typeparam>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.GroupedMonitored`2.#ctor(System.Reactive.Linq.IGroupedObservable{`0,`1},System.String,System.Double,System.Reactive.Contrib.Monitoring.Contracts.IMonitorSurrogate{`1},System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Linq.VisualRxExtensions.GroupedMonitored`2" /> class.
+            </summary>
+            <param name="group">The group.</param>
+            <param name="name">The name.</param>
+            <param name="order">The order.</param>
+            <param name="surrogate">The surrogate.</param>
+            <param name="keywords">The keywords.</param>
+        </member>
+        <member name="P:System.Reactive.Linq.VisualRxExtensions.GroupedMonitored`2.Key">
+            <summary>
+            Gets the key.
+            </summary>
+            <value>
+            The key.
+            </value>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:System.Reactive.Linq.VisualRxExtensions.GroupedMonitored`2.Subscribe(System.IObserver{`1})">
+            <summary>
+            Subscribes the specified observer.
+            </summary>
+            <param name="observer">The observer.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

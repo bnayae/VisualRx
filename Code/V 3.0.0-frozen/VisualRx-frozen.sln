@@ -3,33 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V 3.0.0-frozen", "V 3.0.0-frozen", "{64675168-FB63-4DBE-A74D-049F31C6AF68}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V Next", "V Next", "{475CFE63-8E82-49F6-BCC1-3FFD1C65CA3E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V Experimental", "V Experimental", "{5BA0DE8B-AFA4-4DA6-A44C-AE9EBAEC8D66}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.Contracts", "V 3.0.0-frozen\Monitor\System.Reactive.Contrib.Monitoring.Contracts\System.Reactive.Contrib.Monitoring.Contracts.csproj", "{C57BB7B3-C69F-4331-BA1E-325D1F14B907}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.Contracts", "Monitor\System.Reactive.Contrib.Monitoring.Contracts\System.Reactive.Contrib.Monitoring.Contracts.csproj", "{C57BB7B3-C69F-4331-BA1E-325D1F14B907}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "[Code Side]", "[Code Side]", "{592173A7-F96F-4D83-B53D-90FC85A0BF35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring", "V 3.0.0-frozen\Monitor\Code Side\System.Reactive.Contrib.Monitoring\System.Reactive.Contrib.Monitoring.csproj", "{3D565AB3-2F63-4DBC-9D0B-9AC84565E931}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring", "Monitor\Code Side\System.Reactive.Contrib.Monitoring\System.Reactive.Contrib.Monitoring.csproj", "{3D565AB3-2F63-4DBC-9D0B-9AC84565E931}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "[Proxies]", "[Proxies]", "{9D0C411F-911B-45CB-8849-D3F8141C29C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.WcfDiscoPlugin", "V 3.0.0-frozen\Monitor\Code Side\Proxies\System.Reactive.Contrib.Monitoring.WcfDiscoPlugin\System.Reactive.Contrib.Monitoring.WcfDiscoPlugin.csproj", "{26073062-4E07-453B-9E0A-E532472DEB6C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.WcfDiscoPlugin", "Monitor\Code Side\Proxies\System.Reactive.Contrib.Monitoring.WcfDiscoPlugin\System.Reactive.Contrib.Monitoring.WcfDiscoPlugin.csproj", "{26073062-4E07-453B-9E0A-E532472DEB6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.WcfQueuedPlugin", "V 3.0.0-frozen\Monitor\Code Side\Proxies\System.Reactive.Contrib.Monitoring.WcfQueuedBindingPlugin\System.Reactive.Contrib.Monitoring.WcfQueuedPlugin.csproj", "{6B930BED-9C14-4123-8740-755BD5142D08}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.WcfQueuedPlugin", "Monitor\Code Side\Proxies\System.Reactive.Contrib.Monitoring.WcfQueuedBindingPlugin\System.Reactive.Contrib.Monitoring.WcfQueuedPlugin.csproj", "{6B930BED-9C14-4123-8740-755BD5142D08}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "[Viewer Side]", "[Viewer Side]", "{17235D79-034E-415E-AEC1-7F46546F7270}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.UI.Contracts", "V 3.0.0-frozen\Monitor\Viewer Side\System.Reactive.Contrib.Monitoring.UI.Contracts\System.Reactive.Contrib.Monitoring.UI.Contracts.csproj", "{580B5C88-8FFC-445E-85FC-929F06445480}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.UI.Contracts", "Monitor\Viewer Side\System.Reactive.Contrib.Monitoring.UI.Contracts\System.Reactive.Contrib.Monitoring.UI.Contracts.csproj", "{580B5C88-8FFC-445E-85FC-929F06445480}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "[Plugins]", "[Plugins]", "{BC42CF20-A8B7-44D4-AF27-7A590FFE8585}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.UI.TabGridPlugin", "V 3.0.0-frozen\Monitor\Viewer Side\Plugins\System.Reactive.Contrib.Monitoring.UI.TabGridPlugin\System.Reactive.Contrib.Monitoring.UI.TabGridPlugin.csproj", "{4E47DFDF-0CF3-47BE-ADF1-6A4D6E2FC5E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.UI.TabGridPlugin", "Monitor\Viewer Side\Plugins\System.Reactive.Contrib.Monitoring.UI.TabGridPlugin\System.Reactive.Contrib.Monitoring.UI.TabGridPlugin.csproj", "{4E47DFDF-0CF3-47BE-ADF1-6A4D6E2FC5E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.VisualRx", "V 3.0.0-frozen\Monitor\Viewer Side\System.Reactive.Contrib.Monitoring.VisualRx\System.Reactive.Contrib.Monitoring.VisualRx.csproj", "{AB4E82DF-35F8-41C2-A8DD-03F9F4CEF021}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.VisualRx", "Monitor\Viewer Side\System.Reactive.Contrib.Monitoring.VisualRx\System.Reactive.Contrib.Monitoring.VisualRx.csproj", "{AB4E82DF-35F8-41C2-A8DD-03F9F4CEF021}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "[Tests]", "[Tests]", "{A8061630-58A6-4EC6-8267-27777BB3E241}"
 EndProject
@@ -37,30 +31,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "[Plugins]", "[Plugins]", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "[Visual Tests]", "[Visual Tests]", "{B57C6816-4061-4DB6-A632-774B0A1E9C02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchangeMonitorSample", "V 3.0.0-frozen\Monitor\Tests\Visual Tests\StockExchangeMonitorSample\StockExchangeMonitorSample.csproj", "{B493075D-2008-41D0-BDE6-CAE3066FC78E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchangeMonitorSample", "Monitor\Tests\Visual Tests\StockExchangeMonitorSample\StockExchangeMonitorSample.csproj", "{B493075D-2008-41D0-BDE6-CAE3066FC78E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchangeProfileViewerPlugin", "V 3.0.0-frozen\Monitor\Tests\Visual Tests\PlugIns\StockExchangeProfileViewerPlugin\StockExchangeProfileViewerPlugin.csproj", "{20B01E9E-62B7-4B6E-87DD-ACD27C6A9CDB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchangeProfileViewerPlugin", "Monitor\Tests\Visual Tests\PlugIns\StockExchangeProfileViewerPlugin\StockExchangeProfileViewerPlugin.csproj", "{20B01E9E-62B7-4B6E-87DD-ACD27C6A9CDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.SamplePlugin", "V 3.0.0-frozen\Monitor\Tests\Visual Tests\PlugIns\System.Reactive.Contrib.Monitoring.SamplePlugin\System.Reactive.Contrib.Monitoring.SamplePlugin.csproj", "{0A395E1E-BA05-42B2-8CBD-6B085676858C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.SamplePlugin", "Monitor\Tests\Visual Tests\PlugIns\System.Reactive.Contrib.Monitoring.SamplePlugin\System.Reactive.Contrib.Monitoring.SamplePlugin.csproj", "{0A395E1E-BA05-42B2-8CBD-6B085676858C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin", "V 3.0.0-frozen\Monitor\Code Side\Proxies\System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin\System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin.csproj", "{4260E5A7-1D06-4B8C-98DC-756AC4B40064}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin", "Monitor\Code Side\Proxies\System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin\System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin.csproj", "{4260E5A7-1D06-4B8C-98DC-756AC4B40064}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A9C8B33E-0AA5-4841-A0A3-4900885BB647}"
 	ProjectSection(SolutionItems) = preProject
-		V 3.0.0-frozen\_SolutionFiles\AssemblyInfo.Common.cs = V 3.0.0-frozen\_SolutionFiles\AssemblyInfo.Common.cs
+		_SolutionFiles\AssemblyInfo.Common.cs = _SolutionFiles\AssemblyInfo.Common.cs
+		_SolutionFiles\VisualRx.Version.targets = _SolutionFiles\VisualRx.Version.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.UnitTests", "V 3.0.0-frozen\Monitor\Tests\System.Reactive.Contrib.Monitoring.UnitTests\System.Reactive.Contrib.Monitoring.UnitTests.csproj", "{761C85DB-1F9B-45D3-B84E-B50466F78E2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.UnitTests", "Monitor\Tests\System.Reactive.Contrib.Monitoring.UnitTests\System.Reactive.Contrib.Monitoring.UnitTests.csproj", "{761C85DB-1F9B-45D3-B84E-B50466F78E2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.SanityTest", "V 3.0.0-frozen\Monitor\Tests\Visual Tests\System.Reactive.Contrib.Monitoring.SanityTest\System.Reactive.Contrib.Monitoring.SanityTest.csproj", "{FBF3401C-107D-4B82-84EB-C6B86CD97BD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Contrib.Monitoring.SanityTest", "Monitor\Tests\Visual Tests\System.Reactive.Contrib.Monitoring.SanityTest\System.Reactive.Contrib.Monitoring.SanityTest.csproj", "{FBF3401C-107D-4B82-84EB-C6B86CD97BD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchangeGraphPlugin", "V 3.0.0-frozen\Monitor\Tests\Visual Tests\PlugIns\StockExchangeGraphPlugin\StockExchangeGraphPlugin.csproj", "{67871131-E0BB-4CE8-8050-5AABA2305279}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchangeGraphPlugin", "Monitor\Tests\Visual Tests\PlugIns\StockExchangeGraphPlugin\StockExchangeGraphPlugin.csproj", "{67871131-E0BB-4CE8-8050-5AABA2305279}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryTest", "V 3.0.0-frozen\Monitor\Tests\Visual Tests\MemoryTest\MemoryTest.csproj", "{27F98B11-B3C6-45BE-BA57-2C2FE2CB32BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryTest", "Monitor\Tests\Visual Tests\MemoryTest\MemoryTest.csproj", "{27F98B11-B3C6-45BE-BA57-2C2FE2CB32BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualRxDemo", "V 3.0.0-frozen\Monitor\Tests\VisualRxDemo\VisualRxDemo.csproj", "{BBC79B89-F40B-407C-8FFE-C0E59B8FC220}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualRxDemo", "Monitor\Tests\VisualRxDemo\VisualRxDemo.csproj", "{BBC79B89-F40B-407C-8FFE-C0E59B8FC220}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Samples", "V 3.0.0-frozen\Monitor\Viewer Side\System.Reactive.Samples\System.Reactive.Samples.csproj", "{5F73BC73-F7AB-4C81-8E07-6E7E457FAD88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Reactive.Samples", "Monitor\Viewer Side\System.Reactive.Samples\System.Reactive.Samples.csproj", "{5F73BC73-F7AB-4C81-8E07-6E7E457FAD88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -548,31 +543,99 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C57BB7B3-C69F-4331-BA1E-325D1F14B907} = {64675168-FB63-4DBE-A74D-049F31C6AF68}
-		{592173A7-F96F-4D83-B53D-90FC85A0BF35} = {64675168-FB63-4DBE-A74D-049F31C6AF68}
 		{3D565AB3-2F63-4DBC-9D0B-9AC84565E931} = {592173A7-F96F-4D83-B53D-90FC85A0BF35}
 		{9D0C411F-911B-45CB-8849-D3F8141C29C1} = {592173A7-F96F-4D83-B53D-90FC85A0BF35}
 		{26073062-4E07-453B-9E0A-E532472DEB6C} = {9D0C411F-911B-45CB-8849-D3F8141C29C1}
 		{6B930BED-9C14-4123-8740-755BD5142D08} = {9D0C411F-911B-45CB-8849-D3F8141C29C1}
-		{17235D79-034E-415E-AEC1-7F46546F7270} = {64675168-FB63-4DBE-A74D-049F31C6AF68}
 		{580B5C88-8FFC-445E-85FC-929F06445480} = {17235D79-034E-415E-AEC1-7F46546F7270}
 		{BC42CF20-A8B7-44D4-AF27-7A590FFE8585} = {17235D79-034E-415E-AEC1-7F46546F7270}
 		{4E47DFDF-0CF3-47BE-ADF1-6A4D6E2FC5E1} = {BC42CF20-A8B7-44D4-AF27-7A590FFE8585}
 		{AB4E82DF-35F8-41C2-A8DD-03F9F4CEF021} = {17235D79-034E-415E-AEC1-7F46546F7270}
-		{A8061630-58A6-4EC6-8267-27777BB3E241} = {64675168-FB63-4DBE-A74D-049F31C6AF68}
 		{79C1D602-8C9B-4E55-9EB3-A43A4BBE2981} = {B57C6816-4061-4DB6-A632-774B0A1E9C02}
 		{B57C6816-4061-4DB6-A632-774B0A1E9C02} = {A8061630-58A6-4EC6-8267-27777BB3E241}
 		{B493075D-2008-41D0-BDE6-CAE3066FC78E} = {B57C6816-4061-4DB6-A632-774B0A1E9C02}
 		{20B01E9E-62B7-4B6E-87DD-ACD27C6A9CDB} = {79C1D602-8C9B-4E55-9EB3-A43A4BBE2981}
 		{0A395E1E-BA05-42B2-8CBD-6B085676858C} = {79C1D602-8C9B-4E55-9EB3-A43A4BBE2981}
 		{4260E5A7-1D06-4B8C-98DC-756AC4B40064} = {9D0C411F-911B-45CB-8849-D3F8141C29C1}
-		{A9C8B33E-0AA5-4841-A0A3-4900885BB647} = {64675168-FB63-4DBE-A74D-049F31C6AF68}
 		{761C85DB-1F9B-45D3-B84E-B50466F78E2D} = {A8061630-58A6-4EC6-8267-27777BB3E241}
 		{FBF3401C-107D-4B82-84EB-C6B86CD97BD6} = {B57C6816-4061-4DB6-A632-774B0A1E9C02}
 		{67871131-E0BB-4CE8-8050-5AABA2305279} = {79C1D602-8C9B-4E55-9EB3-A43A4BBE2981}
 		{27F98B11-B3C6-45BE-BA57-2C2FE2CB32BC} = {B57C6816-4061-4DB6-A632-774B0A1E9C02}
 		{BBC79B89-F40B-407C-8FFE-C0E59B8FC220} = {A8061630-58A6-4EC6-8267-27777BB3E241}
 		{5F73BC73-F7AB-4C81-8E07-6E7E457FAD88} = {17235D79-034E-415E-AEC1-7F46546F7270}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 18
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://bnaya.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Monitor\\Code\u0020Side\\Proxies\\System.Reactive.Contrib.Monitoring.WcfDiscoPlugin\\System.Reactive.Contrib.Monitoring.WcfDiscoPlugin.csproj
+		SccProjectTopLevelParentUniqueName1 = VisualRx.sln
+		SccProjectName1 = Monitor/Code\u0020Side/Proxies/System.Reactive.Contrib.Monitoring.WcfDiscoPlugin
+		SccLocalPath1 = Monitor\\Code\u0020Side\\Proxies\\System.Reactive.Contrib.Monitoring.WcfDiscoPlugin
+		SccProjectUniqueName2 = Monitor\\Code\u0020Side\\Proxies\\System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin\\System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin.csproj
+		SccProjectTopLevelParentUniqueName2 = VisualRx.sln
+		SccProjectName2 = Monitor/Code\u0020Side/Proxies/System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin
+		SccLocalPath2 = Monitor\\Code\u0020Side\\Proxies\\System.Reactive.Contrib.Monitoring.WcfFixedAddressPlugin
+		SccProjectUniqueName3 = Monitor\\Code\u0020Side\\Proxies\\System.Reactive.Contrib.Monitoring.WcfQueuedBindingPlugin\\System.Reactive.Contrib.Monitoring.WcfQueuedPlugin.csproj
+		SccProjectTopLevelParentUniqueName3 = VisualRx.sln
+		SccProjectName3 = Monitor/Code\u0020Side/Proxies/System.Reactive.Contrib.Monitoring.WcfQueuedBindingPlugin
+		SccLocalPath3 = Monitor\\Code\u0020Side\\Proxies\\System.Reactive.Contrib.Monitoring.WcfQueuedBindingPlugin
+		SccProjectUniqueName4 = Monitor\\Code\u0020Side\\System.Reactive.Contrib.Monitoring\\System.Reactive.Contrib.Monitoring.csproj
+		SccProjectTopLevelParentUniqueName4 = VisualRx.sln
+		SccProjectName4 = Monitor/Code\u0020Side/System.Reactive.Contrib.Monitoring
+		SccLocalPath4 = Monitor\\Code\u0020Side\\System.Reactive.Contrib.Monitoring
+		SccProjectUniqueName5 = Monitor\\System.Reactive.Contrib.Monitoring.Contracts\\System.Reactive.Contrib.Monitoring.Contracts.csproj
+		SccProjectName5 = Monitor/System.Reactive.Contrib.Monitoring.Contracts
+		SccLocalPath5 = Monitor\\System.Reactive.Contrib.Monitoring.Contracts
+		SccProjectUniqueName6 = Monitor\\Tests\\System.Reactive.Contrib.Monitoring.UnitTests\\System.Reactive.Contrib.Monitoring.UnitTests.csproj
+		SccProjectTopLevelParentUniqueName6 = VisualRx.sln
+		SccProjectName6 = Monitor/Tests/System.Reactive.Contrib.Monitoring.UnitTests
+		SccLocalPath6 = Monitor\\Tests\\System.Reactive.Contrib.Monitoring.UnitTests
+		SccProjectUniqueName7 = Monitor\\Tests\\Visual\u0020Tests\\MemoryTest\\MemoryTest.csproj
+		SccProjectTopLevelParentUniqueName7 = VisualRx.sln
+		SccProjectName7 = Monitor/Tests/Visual\u0020Tests/MemoryTest
+		SccLocalPath7 = Monitor\\Tests\\Visual\u0020Tests\\MemoryTest
+		SccProjectUniqueName8 = Monitor\\Tests\\Visual\u0020Tests\\PlugIns\\StockExchangeGraphPlugin\\StockExchangeGraphPlugin.csproj
+		SccProjectTopLevelParentUniqueName8 = VisualRx.sln
+		SccProjectName8 = Monitor/Tests/Visual\u0020Tests/PlugIns/StockExchangeGraphPlugin
+		SccLocalPath8 = Monitor\\Tests\\Visual\u0020Tests\\PlugIns\\StockExchangeGraphPlugin
+		SccProjectUniqueName9 = Monitor\\Tests\\Visual\u0020Tests\\PlugIns\\StockExchangeProfileViewerPlugin\\StockExchangeProfileViewerPlugin.csproj
+		SccProjectTopLevelParentUniqueName9 = VisualRx.sln
+		SccProjectName9 = Monitor/Tests/Visual\u0020Tests/PlugIns/StockExchangeProfileViewerPlugin
+		SccLocalPath9 = Monitor\\Tests\\Visual\u0020Tests\\PlugIns\\StockExchangeProfileViewerPlugin
+		SccProjectUniqueName10 = Monitor\\Tests\\Visual\u0020Tests\\PlugIns\\System.Reactive.Contrib.Monitoring.SamplePlugin\\System.Reactive.Contrib.Monitoring.SamplePlugin.csproj
+		SccProjectTopLevelParentUniqueName10 = VisualRx.sln
+		SccProjectName10 = Monitor/Tests/Visual\u0020Tests/PlugIns/System.Reactive.Contrib.Monitoring.SamplePlugin
+		SccLocalPath10 = Monitor\\Tests\\Visual\u0020Tests\\PlugIns\\System.Reactive.Contrib.Monitoring.SamplePlugin
+		SccProjectUniqueName11 = Monitor\\Tests\\Visual\u0020Tests\\StockExchangeMonitorSample\\StockExchangeMonitorSample.csproj
+		SccProjectTopLevelParentUniqueName11 = VisualRx.sln
+		SccProjectName11 = Monitor/Tests/Visual\u0020Tests/StockExchangeMonitorSample
+		SccLocalPath11 = Monitor\\Tests\\Visual\u0020Tests\\StockExchangeMonitorSample
+		SccProjectUniqueName12 = Monitor\\Tests\\Visual\u0020Tests\\System.Reactive.Contrib.Monitoring.SanityTest\\System.Reactive.Contrib.Monitoring.SanityTest.csproj
+		SccProjectTopLevelParentUniqueName12 = VisualRx.sln
+		SccProjectName12 = Monitor/Tests/Visual\u0020Tests/System.Reactive.Contrib.Monitoring.SanityTest
+		SccLocalPath12 = Monitor\\Tests\\Visual\u0020Tests\\System.Reactive.Contrib.Monitoring.SanityTest
+		SccProjectUniqueName13 = Monitor\\Tests\\VisualRxDemo\\VisualRxDemo.csproj
+		SccProjectTopLevelParentUniqueName13 = VisualRx.sln
+		SccProjectName13 = Monitor/Tests/VisualRxDemo
+		SccLocalPath13 = Monitor\\Tests\\VisualRxDemo
+		SccProjectUniqueName14 = Monitor\\Viewer\u0020Side\\Plugins\\System.Reactive.Contrib.Monitoring.UI.TabGridPlugin\\System.Reactive.Contrib.Monitoring.UI.TabGridPlugin.csproj
+		SccProjectTopLevelParentUniqueName14 = VisualRx.sln
+		SccProjectName14 = Monitor/Viewer\u0020Side/Plugins/System.Reactive.Contrib.Monitoring.UI.TabGridPlugin
+		SccLocalPath14 = Monitor\\Viewer\u0020Side\\Plugins\\System.Reactive.Contrib.Monitoring.UI.TabGridPlugin
+		SccProjectUniqueName15 = Monitor\\Viewer\u0020Side\\System.Reactive.Contrib.Monitoring.UI.Contracts\\System.Reactive.Contrib.Monitoring.UI.Contracts.csproj
+		SccProjectTopLevelParentUniqueName15 = VisualRx.sln
+		SccProjectName15 = Monitor/Viewer\u0020Side/System.Reactive.Contrib.Monitoring.UI.Contracts
+		SccLocalPath15 = Monitor\\Viewer\u0020Side\\System.Reactive.Contrib.Monitoring.UI.Contracts
+		SccProjectUniqueName16 = Monitor\\Viewer\u0020Side\\System.Reactive.Contrib.Monitoring.VisualRx\\System.Reactive.Contrib.Monitoring.VisualRx.csproj
+		SccProjectTopLevelParentUniqueName16 = VisualRx.sln
+		SccProjectName16 = Monitor/Viewer\u0020Side/System.Reactive.Contrib.Monitoring.VisualRx
+		SccLocalPath16 = Monitor\\Viewer\u0020Side\\System.Reactive.Contrib.Monitoring.VisualRx
+		SccProjectUniqueName17 = Monitor\\Viewer\u0020Side\\System.Reactive.Samples\\System.Reactive.Samples.csproj
+		SccProjectTopLevelParentUniqueName17 = VisualRx.sln
+		SccProjectName17 = Monitor/Viewer\u0020Side/System.Reactive.Samples
+		SccLocalPath17 = Monitor\\Viewer\u0020Side\\System.Reactive.Samples
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = System.Reactive.Contrib.Monitoring1.vsmdi
